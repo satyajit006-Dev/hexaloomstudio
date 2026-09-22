@@ -1,0 +1,6 @@
+{
+  "name": "Hexaloom Studio",
+  "description": "Hexaloom Studio — Code. Design. Innovate. Engineering scalable web applications, SaaS platforms, high-performance digital systems, and architectural software.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
