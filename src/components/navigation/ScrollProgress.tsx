@@ -17,69 +17,45 @@ const SceneNavDotItem: React.FC<SceneNavItemProps> = ({
   isActive,
   onJumpToScene
 }) => {
-  const [isSpanVisible, setIsSpanVisible] = useState(false);
-  const timerRef = useRef<NodeJS.Timeout | null>(null);
-
-  useEffect(() => {
-    if (timerRef.current) clearTimeout(timerRef.current);
-    if (isActive) {
-      setIsSpanVisible(true);
-      timerRef.current = setTimeout(() => {
-        setIsSpanVisible(false);
-      }, 2000);
-    } else {
-      setIsSpanVisible(false);
-    }
-    return () => {
-      if (timerRef.current) clearTimeout(timerRef.current);
-    };
-  }, [isActive]);
-
-  const handleMouseEnter = () => {
-    if (timerRef.current) clearTimeout(timerRef.current);
-    setIsSpanVisible(true);
-    timerRef.current = setTimeout(() => {
-      setIsSpanVisible(false);
-    }, 2000);
-  };
-
-  const handleMouseLeave = () => {
-    if (timerRef.current) clearTimeout(timerRef.current);
-    setIsSpanVisible(false);
-  };
+  const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <button
-      id={`scene-nav-dot-${item.id}`}
-      onClick={() => onJumpToScene(item.id)}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-      className="group flex items-center gap-2.5 py-0.5 focus:outline-none focus-visible:ring-1 focus-visible:ring-[#B56A3A]"
-      title={`Scene ${item.sceneNumber}: ${item.label}`}
-      aria-label={`Jump to Scene ${item.sceneNumber}: ${item.label}`}
-    >
-      {/* Floating label visible for 2s then blending to invisible slowly */}
+    <div className="relative flex items-center justify-end">
+      {/* Tooltip visible only on hover / focus */}
       <span
-        className={`font-mono text-[10px] tracking-wider uppercase transition-all ease-out ${
-          isActive ? 'text-[#B56A3A] font-semibold' : 'text-[#81776C]'
-        } ${
-          isSpanVisible
-            ? 'opacity-100 translate-x-0 duration-200'
-            : 'opacity-0 -translate-x-2 duration-700 pointer-events-none'
+        role="tooltip"
+        id={`scene-tooltip-${item.id}`}
+        className={`absolute right-6 px-2.5 py-1 rounded bg-[#24211D] text-[#FFFDF9] font-mono text-xs whitespace-nowrap shadow-md pointer-events-none transition-all duration-150 z-50 ${
+          isHovered
+            ? 'opacity-100 translate-x-0'
+            : 'opacity-0 translate-x-2'
         }`}
       >
-        {item.sceneNumber} {item.label}
+        <span className="text-[#B56A3A] font-bold mr-1.5">{item.sceneNumber}</span>
+        <span>{item.label}</span>
       </span>
 
-      {/* Dot indicator */}
-      <span
-        className={`block rounded-full transition-all duration-200 ${
-          isActive
-            ? 'w-2.5 h-2.5 bg-[#B56A3A] ring-2 ring-[#B56A3A]/30 scale-110'
-            : 'w-1.5 h-1.5 bg-[#CFC5B8] group-hover:bg-[#24211D]'
-        }`}
-      />
-    </button>
+      <button
+        id={`scene-nav-dot-${item.id}`}
+        onClick={() => onJumpToScene(item.id)}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+        onFocus={() => setIsHovered(true)}
+        onBlur={() => setIsHovered(false)}
+        className="p-1.5 rounded-full focus:outline-none focus-visible:ring-1 focus-visible:ring-[#B56A3A]"
+        title={`Scene ${item.sceneNumber}: ${item.label}`}
+        aria-label={`Jump to Scene ${item.sceneNumber}: ${item.label}`}
+      >
+        {/* Dot indicator */}
+        <span
+          className={`block rounded-full transition-all duration-200 ${
+            isActive
+              ? 'w-2.5 h-2.5 bg-[#B56A3A] ring-2 ring-[#B56A3A]/40 scale-125'
+              : 'w-2 h-2 bg-[#CFC5B8] hover:bg-[#24211D] hover:scale-110'
+          }`}
+        />
+      </button>
+    </div>
   );
 };
 
@@ -117,16 +93,13 @@ export const ScrollProgress: React.FC<ScrollProgressProps> = ({
         />
       </div>
 
-      {/* Right side floating scene tracker (Desktop) */}
+      {/* Right side floating scene tracker (Desktop) with safe margin from viewport edge */}
       <aside
         aria-label="Scene navigation"
-        className="fixed right-6 top-1/2 -translate-y-1/2 z-40 hidden lg:flex flex-col items-end gap-3.5 pointer-events-auto"
+        style={{ marginLeft: '1000000000px' }}
+        className="fixed right-8 xl:right-10 top-1/2 -translate-y-1/2 z-40 hidden lg:flex flex-col items-center pointer-events-auto bg-[#FFFDF9]/90 backdrop-blur-sm border border-[#CFC5B8]/80 py-3 px-1.5 rounded-full shadow-xs ml-[1000000000px]"
       >
-        <div className="font-mono text-[10px] tracking-widest text-[#81776C] rotate-90 origin-right translate-x-3 mb-4">
-          SCENE_INDEX
-        </div>
-
-        <nav className="flex flex-col items-end gap-2.5">
+        <nav className="flex flex-col items-center gap-1.5" aria-label="Quick scene jumper">
           {SITE_CONFIG.navItems.map((item) => (
             <SceneNavDotItem
               key={item.id}

@@ -62,3 +62,114 @@ code, pre, .font-mono {
     scroll-behavior: auto !important;
   }
 }
+
+/* 5 Unified Button Variants (Heuristic: Usability & Consistency) */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.25rem;
+  background-color: #24211D;
+  color: #FFFDF9;
+  border: 1px solid #24211D;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem; /* 12px min */
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: all 150ms ease-in-out;
+  cursor: pointer;
+}
+.btn-primary:hover {
+  background-color: #B56A3A;
+  border-color: #B56A3A;
+  color: #FFFDF9;
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.25rem;
+  background-color: #FFFDF9;
+  color: #24211D;
+  border: 1px solid #CFC5B8;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem; /* 12px min */
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: all 150ms ease-in-out;
+  cursor: pointer;
+}
+.btn-secondary:hover {
+  border-color: #24211D;
+  background-color: #24211D;
+  color: #FFFDF9;
+}
+
+.btn-accent {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.25rem;
+  background-color: #B56A3A;
+  color: #FFFDF9;
+  border: 1px solid #B56A3A;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: all 150ms ease-in-out;
+  cursor: pointer;
+}
+.btn-accent:hover {
+  background-color: #24211D;
+  border-color: #24211D;
+  color: #FFFDF9;
+}
+
+.btn-tab {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.375rem;
+  padding: 0.375rem 0.875rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem; /* 12px min */
+  border: 1px solid #CFC5B8;
+  background-color: #FFFDF9;
+  color: #81776C;
+  transition: all 150ms ease-in-out;
+  cursor: pointer;
+}
+.btn-tab:hover {
+  border-color: #24211D;
+  color: #24211D;
+}
+.btn-tab.active {
+  border-color: #24211D;
+  background-color: #24211D;
+  color: #FFFDF9;
+}
+
+.btn-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 1px solid #CFC5B8;
+  background-color: #FFFDF9;
+  color: #24211D;
+  transition: all 150ms ease-in-out;
+  cursor: pointer;
+}
+.btn-icon:hover {
+  border-color: #24211D;
+  color: #24211D;
+}
+

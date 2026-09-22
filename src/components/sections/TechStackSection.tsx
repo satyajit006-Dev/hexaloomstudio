@@ -18,30 +18,37 @@ export const TechStackSection: React.FC = () => {
       className="py-24 sm:py-32 border-b border-[#CFC5B8] bg-[#F5F0E8] relative"
     >
       <div className="max-w-7xl mx-auto px-6 sm:px-8">
-        {/* Section Header */}
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between border-b border-[#CFC5B8] pb-6 mb-12 gap-4">
-          <div>
-            <div className="font-mono text-xs text-[#B56A3A] tracking-wider mb-2 flex items-center gap-2">
-              <span>SCENE 05</span>
-              <span>//</span>
-              <span>TECHNICAL ARCHITECTURE WALL</span>
+        {/* Section Header with Left-Aligned Filter Controls */}
+        <div className="border-b border-[#CFC5B8] pb-6 mb-12 space-y-6">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+            <div>
+              <div className="font-mono text-xs text-[#B56A3A] tracking-wider mb-2 flex items-center gap-2">
+                <span>SCENE 05</span>
+                <span>//</span>
+                <span>TECHNICAL ARCHITECTURE WALL</span>
+              </div>
+              <h2 className="text-3xl sm:text-5xl font-bold font-sans text-[#24211D] tracking-tight">
+                What We Use
+              </h2>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-bold font-sans text-[#24211D] tracking-tight uppercase">
-              What We Use
-            </h2>
+            <div className="font-mono text-xs text-[#81776C]">
+              PRODUCTION-HARDENED STACK // ZERO FLUFF
+            </div>
           </div>
 
-          {/* Category Filters */}
-          <div className="flex flex-wrap items-center gap-1.5 font-mono text-xs">
+          {/* Category Filters (Left-aligned in direct visual path) */}
+          <div className="flex flex-wrap items-center gap-2 font-mono text-xs">
+            <span className="text-[#81776C] mr-1 flex items-center gap-1.5 font-semibold">
+              <Filter className="w-3.5 h-3.5 text-[#B56A3A]" />
+              <span>FILTER:</span>
+            </span>
             {TECH_CATEGORIES.map((cat) => (
               <button
                 key={cat.id}
                 id={`tech-filter-${cat.id}`}
                 onClick={() => setActiveCategory(cat.id)}
-                className={`px-3 py-1.5 border transition-all ${
-                  activeCategory === cat.id
-                    ? 'border-[#24211D] bg-[#24211D] text-[#FFFDF9]'
-                    : 'border-[#CFC5B8] bg-[#FFFDF9] text-[#81776C] hover:border-[#24211D] hover:text-[#24211D]'
+                className={`btn-tab ${
+                  activeCategory === cat.id ? 'active font-semibold' : ''
                 }`}
               >
                 {cat.label}
@@ -69,7 +76,7 @@ export const TechStackSection: React.FC = () => {
                   }`}
                 >
                   {/* Status Indicator Tag */}
-                  <div className="flex items-center justify-between font-mono text-[10px] mb-3">
+                  <div className="flex items-center justify-between font-mono text-xs mb-3">
                     <span
                       className={`uppercase ${
                         isSelected ? 'text-[#B56A3A]' : 'text-[#81776C]'
@@ -89,7 +96,7 @@ export const TechStackSection: React.FC = () => {
                   </div>
 
                   <div
-                    className={`text-[11px] truncate ${
+                    className={`text-xs truncate ${
                       isSelected ? 'text-[#CFC5B8]' : 'text-[#81776C]'
                     }`}
                   >
@@ -108,7 +115,7 @@ export const TechStackSection: React.FC = () => {
                   <span className="text-[#B56A3A] font-semibold">
                     INSPECTOR // {selectedTech.name}
                   </span>
-                  <span className="text-[#CFC5B8] uppercase text-[10px]">
+                  <span className="text-[#CFC5B8] uppercase text-xs">
                     STATUS: {selectedTech.status}
                   </span>
                 </div>
@@ -141,7 +148,7 @@ export const TechStackSection: React.FC = () => {
                 </div>
               </div>
 
-              <div className="pt-6 border-t border-[#81776C]/40 text-[11px] text-[#81776C] flex items-center justify-between mt-6">
+              <div className="pt-6 border-t border-[#81776C]/40 text-xs text-[#81776C] flex items-center justify-between mt-6">
                 <span>PRESS OR HOVER ANY COMPONENT TO AUDIT</span>
                 <span className="text-[#B56A3A]">● VERIFIED</span>
               </div>

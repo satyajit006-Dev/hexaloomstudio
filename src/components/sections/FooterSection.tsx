@@ -39,14 +39,14 @@ export const FooterSection: React.FC<FooterSectionProps> = ({
               Hexaloom Studio engineers architectural web applications, scalable SaaS platforms, and resilient cloud backends led directly by senior software architects.
             </p>
 
-            <div className="pt-2 text-[11px] text-[#81776C]">
+            <div className="pt-2 text-xs text-[#81776C]">
               OFFICE: TECH DISTRICT // INFOCITY // BHUBANESWAR // INDIA
             </div>
           </div>
 
           {/* Col 5-6: Navigation Directory */}
           <div className="md:col-span-2 space-y-4">
-            <div className="text-[11px] font-bold text-[#B56A3A] uppercase tracking-wider">
+            <div className="text-xs font-bold text-[#B56A3A] uppercase tracking-wider">
               Navigation
             </div>
             <ul className="space-y-2.5">
@@ -56,7 +56,7 @@ export const FooterSection: React.FC<FooterSectionProps> = ({
                     onClick={() => onJumpToScene(item.id)}
                     className="text-[#CFC5B8] hover:text-[#FFFDF9] transition-colors flex items-center gap-2 text-left"
                   >
-                    <span className="text-[10px] text-[#81776C]">{item.sceneNumber}</span>
+                    <span className="text-xs text-[#81776C]">{item.sceneNumber}</span>
                     <span>{item.label}</span>
                   </button>
                 </li>
@@ -66,7 +66,7 @@ export const FooterSection: React.FC<FooterSectionProps> = ({
 
           {/* Col 7-9: Senior Developers Portfolios */}
           <div className="md:col-span-3 space-y-4">
-            <div className="text-[11px] font-bold text-[#B56A3A] uppercase tracking-wider flex items-center gap-1.5">
+            <div className="text-xs font-bold text-[#B56A3A] uppercase tracking-wider flex items-center gap-1.5">
               <Sparkles className="w-3 h-3 text-[#38BDF8]" />
               <span>Senior Principals</span>
             </div>
@@ -75,14 +75,14 @@ export const FooterSection: React.FC<FooterSectionProps> = ({
                 <div key={dev.name} className="p-3 border border-[#3A352F] bg-[#1C1A17] space-y-1.5">
                   <div className="font-bold text-[#FFFDF9] text-xs flex items-center justify-between">
                     <span>{dev.name}</span>
-                    <span className="text-[10px] text-[#B56A3A]">{dev.initials}</span>
+                    <span className="text-xs text-[#B56A3A]">{dev.initials}</span>
                   </div>
-                  <div className="text-[10px] text-[#81776C]">{dev.role}</div>
+                  <div className="text-xs text-[#81776C]">{dev.role}</div>
                   <a
                     href={dev.portfolioUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[11px] text-[#38BDF8] hover:text-[#67E8F9] flex items-center gap-1 pt-1 font-mono"
+                    className="text-xs text-[#38BDF8] hover:text-[#67E8F9] flex items-center gap-1 pt-1 font-mono"
                   >
                     <span>{dev.domain}</span>
                     <ArrowUpRight className="w-3 h-3" />
@@ -94,7 +94,7 @@ export const FooterSection: React.FC<FooterSectionProps> = ({
 
           {/* Col 10-12: Direct Channels & Connect */}
           <div className="md:col-span-3 space-y-4">
-            <div className="text-[11px] font-bold text-[#B56A3A] uppercase tracking-wider">
+            <div className="text-xs font-bold text-[#B56A3A] uppercase tracking-wider">
               Contact & Connect
             </div>
             <ul className="space-y-2.5">
@@ -175,7 +175,7 @@ export const FooterSection: React.FC<FooterSectionProps> = ({
         </div>
 
         {/* Bottom Legal, Back to Top, and Copyright */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[#81776C] text-[11px]">
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[#81776C] text-xs">
           <div>
             &copy; 2026 {SITE_CONFIG.name}. ALL RIGHTS RESERVED. CODE. DESIGN. INNOVATE.
           </div>

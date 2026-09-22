@@ -100,7 +100,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ preselectedServi
               <span>//</span>
               <span>COMMISSION INQUIRY</span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-bold font-sans text-[#24211D] tracking-tight uppercase">
+            <h2 className="text-3xl sm:text-5xl font-bold font-sans text-[#24211D] tracking-tight">
               Start a Conversation
             </h2>
           </div>
@@ -245,7 +245,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ preselectedServi
                   href={SITE_CONFIG.contact.googleMapsUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-3 py-2 bg-[#24211D] hover:bg-[#B56A3A] text-[#FFFDF9] transition-colors flex items-center gap-1.5"
+                  className="btn-primary"
                 >
                   <Navigation className="w-3.5 h-3.5" />
                   <span>Google Maps</span>
@@ -256,7 +256,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ preselectedServi
                   href={SITE_CONFIG.contact.appleMapsUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-3 py-2 border border-[#24211D] hover:bg-[#24211D] hover:text-[#FFFDF9] text-[#24211D] transition-colors flex items-center gap-1.5"
+                  className="btn-secondary"
                 >
                   <Navigation className="w-3.5 h-3.5" />
                   <span>Apple Maps</span>
@@ -280,7 +280,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ preselectedServi
                   className="p-8 border border-[#527A5A] bg-[#527A5A]/10 text-center space-y-4 font-mono text-xs"
                 >
                   <CheckCircle2 className="w-10 h-10 text-[#527A5A] mx-auto" />
-                  <h4 className="font-sans text-xl font-bold text-[#24211D] uppercase">
+                  <h4 className="font-sans text-xl font-bold text-[#24211D]">
                     Inquiry Received
                   </h4>
                   <p className="text-[#24211D] max-w-md mx-auto">
@@ -288,7 +288,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ preselectedServi
                   </p>
                   <button
                     onClick={() => setIsSuccess(false)}
-                    className="px-4 py-2 bg-[#24211D] text-[#FFFDF9] uppercase tracking-wider text-[11px] hover:bg-[#B56A3A] transition-colors"
+                    className="btn-primary"
                   >
                     Submit Another Scope
                   </button>
@@ -332,7 +332,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ preselectedServi
                         }`}
                       />
                       {errors.name && (
-                        <span className="font-mono text-[10px] text-[#A84C4C] mt-1 block">
+                        <span className="font-mono text-xs text-[#A84C4C] mt-1 block">
                           {errors.name}
                         </span>
                       )}
@@ -476,7 +476,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ preselectedServi
                       }`}
                     />
                     {errors.message && (
-                      <span className="font-mono text-[10px] text-[#A84C4C] mt-1 block">
+                      <span className="font-mono text-xs text-[#A84C4C] mt-1 block">
                         {errors.message}
                       </span>
                     )}
@@ -488,7 +488,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ preselectedServi
                       type="submit"
                       id="contact-submit-btn"
                       disabled={isSubmitting}
-                      className="px-8 py-4 bg-[#24211D] hover:bg-[#B56A3A] text-[#FFFDF9] font-mono text-xs tracking-wider uppercase transition-colors flex items-center justify-center gap-2 font-semibold disabled:opacity-50"
+                      className="btn-primary flex items-center justify-center gap-2 disabled:opacity-50"
                     >
                       {isSubmitting ? (
                         <span>TRANSMITTING TICKET...</span>
@@ -500,7 +500,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ preselectedServi
                       )}
                     </button>
 
-                    <div className="text-[10px] font-mono text-[#81776C]">
+                    <div className="text-xs font-mono text-[#81776C]">
                       SECURED TRANSMISSION // ZERO SPAM ASSURANCE
                     </div>
                   </div>

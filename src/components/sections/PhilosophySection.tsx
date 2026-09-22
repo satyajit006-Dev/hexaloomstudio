@@ -39,13 +39,20 @@ export const PhilosophySection: React.FC<PhilosophySectionProps> = ({ reducedMot
     >
       <div className="max-w-7xl mx-auto px-6 sm:px-8">
         {/* Section Header Stamp */}
-        <div className="flex items-center justify-between border-b border-[#CFC5B8] pb-4 mb-16 text-xs font-mono text-[#81776C]">
-          <div className="flex items-center gap-2">
-            <span className="text-[#B56A3A] font-semibold">SCENE 02</span>
-            <span>//</span>
-            <span className="text-[#24211D] font-medium">STUDIO PHILOSOPHY</span>
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between border-b border-[#CFC5B8] pb-6 mb-16 gap-4">
+          <div>
+            <div className="font-mono text-xs text-[#B56A3A] tracking-wider mb-2 flex items-center gap-2">
+              <span className="font-semibold">SCENE 02</span>
+              <span>//</span>
+              <span>STUDIO ETHOS</span>
+            </div>
+            <h2 className="text-3xl sm:text-5xl font-bold font-sans text-[#24211D] tracking-tight">
+              Studio Philosophy
+            </h2>
           </div>
-          <span className="tracking-widest">MANIFESTO & ENGINEERING ETHOS</span>
+          <div className="font-mono text-xs text-[#81776C] tracking-widest text-left sm:text-right">
+            MANIFESTO & ENGINEERING ETHOS
+          </div>
         </div>
 
         {/* Large Kinetic Word-Split Statement */}
@@ -110,13 +117,13 @@ export const PhilosophySection: React.FC<PhilosophySectionProps> = ({ reducedMot
               <span>TENET 01</span>
               <Layers className="w-4 h-4 text-[#B56A3A]" />
             </div>
-            <h3 className="font-sans font-bold text-lg text-[#24211D] uppercase">
+            <h3 className="font-sans font-bold text-lg text-[#24211D]">
               Radical Minimalism
             </h3>
             <p className="text-sm text-[#81776C] leading-relaxed">
               We eliminate decorative excess and synthetic fluff. Every line of code, HTML element, and database query must justify its footprint in latency and maintenance cost.
             </p>
-            <div className="font-mono text-[11px] text-[#24211D] pt-2 border-t border-[#CFC5B8]/40">
+            <div className="font-mono text-xs text-[#24211D] pt-2 border-t border-[#CFC5B8]/40">
               ZERO-SLOP PROMISE // NO MARKETING GIMMICKS
             </div>
           </div>
@@ -126,13 +133,13 @@ export const PhilosophySection: React.FC<PhilosophySectionProps> = ({ reducedMot
               <span>TENET 02</span>
               <Zap className="w-4 h-4 text-[#B56A3A]" />
             </div>
-            <h3 className="font-sans font-bold text-lg text-[#24211D] uppercase">
+            <h3 className="font-sans font-bold text-lg text-[#24211D]">
               Sub-second Speed
             </h3>
             <p className="text-sm text-[#81776C] leading-relaxed">
               Performance is a non-negotiable feature. We optimize time-to-first-byte, memoize expensive data transforms, and deliver 60fps locked rendering across devices.
             </p>
-            <div className="font-mono text-[11px] text-[#24211D] pt-2 border-t border-[#CFC5B8]/40">
+            <div className="font-mono text-xs text-[#24211D] pt-2 border-t border-[#CFC5B8]/40">
               LATENCY CEILING // &lt; 200MS TTFB
             </div>
           </div>
@@ -142,13 +149,13 @@ export const PhilosophySection: React.FC<PhilosophySectionProps> = ({ reducedMot
               <span>TENET 03</span>
               <Cpu className="w-4 h-4 text-[#B56A3A]" />
             </div>
-            <h3 className="font-sans font-bold text-lg text-[#24211D] uppercase">
+            <h3 className="font-sans font-bold text-lg text-[#24211D]">
               Architectural Durability
             </h3>
             <p className="text-sm text-[#81776C] leading-relaxed">
               We build systems that withstand real-world production. Strict type safety, deterministic testing, and isolated services that do not crumble under flash traffic.
             </p>
-            <div className="font-mono text-[11px] text-[#24211D] pt-2 border-t border-[#CFC5B8]/40">
+            <div className="font-mono text-xs text-[#24211D] pt-2 border-t border-[#CFC5B8]/40">
               TYPE-STRICT // AUDITED CI/CD
             </div>
           </div>

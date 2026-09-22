@@ -42,13 +42,13 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           <div className="flex items-center gap-3">
             <span className="w-2 h-2 rounded-full bg-[#527A5A] animate-pulse" />
             <span className="text-[#24211D] font-medium">
-              HEXALOOM STUDIO: ACTIVE PROD // SENIOR DEVELOPER COMMISSIONS
+              Hexaloom Studio: Active Production // Senior Developer Commissions
             </span>
           </div>
 
           <div className="flex items-center gap-6">
-            <span className="hidden sm:inline">BHUBANESWAR // INDIA</span>
-            <span className="text-[#B56A3A] font-semibold">SCENE 01 / 11</span>
+            <span className="hidden sm:inline">Bhubaneswar // India</span>
+            <span className="text-[#B56A3A] font-semibold">Scene 01 / 11</span>
           </div>
         </div>
       </div>
@@ -69,7 +69,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
           {/* Large Editorial Headline with Hexaloom Logo Lockup */}
           <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-8">
-            <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-bold tracking-tight text-[#24211D] leading-[1.02] max-w-4xl uppercase font-sans">
+            <h1 className="text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-[#24211D] leading-[1.02] max-w-4xl font-sans">
               HEXALOOM <br />
               <span className="text-[#2563EB]">STUDIO.</span> <br />
               <span className="text-[#81776C] font-serif italic lowercase text-3xl sm:text-5xl md:text-6xl tracking-normal">
@@ -91,7 +91,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               <div className="font-mono text-xs font-bold text-[#24211D] uppercase tracking-widest text-center">
                 HEXALOOM STUDIO
               </div>
-              <div className="text-[10px] font-mono text-[#81776C] text-center mt-1.5 uppercase tracking-wider">
+              <div className="text-xs font-mono text-[#81776C] text-center mt-1.5 uppercase tracking-wider">
                 ARCHITECTURAL SOFTWARE CRAFT
               </div>
             </div>
@@ -112,16 +112,16 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               <button
                 id="hero-cta-start"
                 onClick={onStartProject}
-                className="group px-6 py-3.5 bg-[#24211D] hover:bg-[#B56A3A] text-[#FFFDF9] font-mono text-xs tracking-wider uppercase transition-all flex items-center gap-2 shadow-xs"
+                className="btn-primary"
               >
                 <span>Start a project</span>
-                <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                <ArrowUpRight className="w-4 h-4" />
               </button>
 
               <button
                 id="hero-cta-explore-work"
                 onClick={onExploreWork}
-                className="px-6 py-3.5 border border-[#24211D] hover:bg-[#24211D] hover:text-[#FFFDF9] text-[#24211D] font-mono text-xs tracking-wider uppercase transition-all flex items-center gap-2 bg-[#FFFDF9]/60"
+                className="btn-secondary"
               >
                 <span>Explore work</span>
                 <Compass className="w-4 h-4" />
@@ -132,7 +132,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           {/* Editorial Spec Ticket & Senior Engineers Highlight */}
           <div className="md:col-span-5 flex flex-col justify-between border-l border-[#CFC5B8]/80 pl-6 sm:pl-8 font-mono text-xs text-[#81776C] space-y-4">
             <div>
-              <div className="text-[11px] text-[#24211D] font-semibold uppercase tracking-wider mb-2 flex items-center gap-2">
+              <div className="text-xs text-[#24211D] font-semibold uppercase tracking-wider mb-2 flex items-center gap-2">
                 <Sparkles className="w-3.5 h-3.5 text-[#B56A3A]" />
                 <span>Senior Engineering Principals</span>
               </div>
@@ -143,7 +143,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                     href="https://riteshpati.indevs.in/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[#38BDF8] hover:text-[#2563EB] flex items-center gap-1 font-mono text-[11px]"
+                    className="text-[#38BDF8] hover:text-[#2563EB] flex items-center gap-1 font-mono text-xs"
                   >
                     <span>riteshpati.indevs.in</span>
                     <ArrowUpRight className="w-3 h-3" />
@@ -155,7 +155,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                     href="https://satyajitportfolio-amber.vercel.app/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[#38BDF8] hover:text-[#2563EB] flex items-center gap-1 font-mono text-[11px]"
+                    className="text-[#38BDF8] hover:text-[#2563EB] flex items-center gap-1 font-mono text-xs"
                   >
                     <span>satyajitportfolio-amber</span>
                     <ArrowUpRight className="w-3 h-3" />
@@ -164,7 +164,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               </ul>
             </div>
 
-            <div className="pt-4 border-t border-[#CFC5B8]/60 text-[11px] space-y-1">
+            <div className="pt-4 border-t border-[#CFC5B8]/60 text-xs space-y-1">
               <div>
                 <span className="text-[#B56A3A] font-semibold">DIRECT DESK:</span> {SITE_CONFIG.contact.email}
               </div>

@@ -25,7 +25,7 @@ export const SelectedWorkSection: React.FC<SelectedWorkSectionProps> = ({
               <span>//</span>
               <span>SELECTED COMMISSIONS</span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-bold font-sans text-[#24211D] tracking-tight uppercase">
+            <h2 className="text-3xl sm:text-5xl font-bold font-sans text-[#24211D] tracking-tight">
               Selected Work
             </h2>
           </div>
@@ -53,7 +53,7 @@ export const SelectedWorkSection: React.FC<SelectedWorkSectionProps> = ({
                   </div>
 
                   <div className="flex items-center gap-3">
-                    <span className="px-2.5 py-1 bg-[#24211D] text-[#FFFDF9] font-mono text-[11px] uppercase tracking-wider">
+                    <span className="px-2.5 py-1 bg-[#24211D] text-[#FFFDF9] font-mono text-xs uppercase tracking-wider">
                       {project.category}
                     </span>
                     <span className="font-mono text-xs text-[#81776C]">{project.year}</span>
@@ -77,7 +77,7 @@ export const SelectedWorkSection: React.FC<SelectedWorkSectionProps> = ({
 
                       {/* Tech Stack Pills */}
                       <div className="pt-2">
-                        <div className="font-mono text-[11px] text-[#81776C] uppercase mb-2">
+                        <div className="font-mono text-xs text-[#81776C] uppercase mb-2">
                           Engineered With:
                         </div>
                         <div className="flex flex-wrap gap-2">
@@ -100,7 +100,7 @@ export const SelectedWorkSection: React.FC<SelectedWorkSectionProps> = ({
                           <div className="text-lg font-bold text-[#B56A3A] tracking-tight">
                             {m.value}
                           </div>
-                          <div className="text-[10px] text-[#81776C] uppercase leading-tight mt-0.5">
+                          <div className="text-xs text-[#81776C] uppercase leading-tight mt-0.5">
                             {m.label}
                           </div>
                         </div>
@@ -112,7 +112,7 @@ export const SelectedWorkSection: React.FC<SelectedWorkSectionProps> = ({
                       <button
                         id={`view-case-study-btn-${project.id}`}
                         onClick={() => onOpenProjectCaseStudy(project)}
-                        className="px-6 py-3 bg-[#24211D] hover:bg-[#B56A3A] text-[#FFFDF9] font-mono text-xs tracking-wider uppercase transition-colors inline-flex items-center gap-2"
+                        className="btn-primary"
                       >
                         <span>Explore 5-Stage Case Study</span>
                         <ArrowUpRight className="w-4 h-4" />
@@ -128,13 +128,13 @@ export const SelectedWorkSection: React.FC<SelectedWorkSectionProps> = ({
                           <Terminal className="w-3.5 h-3.5" />
                           <span>ARCHITECTURE_SCHEMA_V{project.number}.TS</span>
                         </span>
-                        <span className="text-[#CFC5B8] text-[10px]">VERIFIED_BUILD</span>
+                        <span className="text-[#CFC5B8] text-xs">VERIFIED_BUILD</span>
                       </div>
 
                       {/* Editorial Visual Diagrams */}
                       <div className="p-4 bg-[#1C1A17] border border-[#81776C]/30 font-mono text-xs text-[#CFC5B8] space-y-3">
                         <div className="text-[#B56A3A] font-semibold">// PRODUCTION PIPELINE EXECUTION:</div>
-                        <div className="space-y-2 text-[11px]">
+                        <div className="space-y-2 text-xs">
                           <div className="flex items-center justify-between border-b border-[#81776C]/20 pb-1.5">
                             <span className="text-[#81776C]">01 INGRESS:</span>
                             <span className="text-[#FFFDF9]">Edge Gateway (Global Anycast)</span>
@@ -156,10 +156,10 @@ export const SelectedWorkSection: React.FC<SelectedWorkSectionProps> = ({
 
                       {/* Case study stages mini checklist preview */}
                       <div className="font-mono text-xs space-y-1.5">
-                        <div className="text-[11px] text-[#81776C] uppercase mb-1">
+                        <div className="text-xs text-[#81776C] uppercase mb-1">
                           Audited Case Study Stages:
                         </div>
-                        <div className="grid grid-cols-5 gap-1.5 text-center text-[10px]">
+                        <div className="grid grid-cols-5 gap-1.5 text-center text-xs">
                           {project.caseStudyStages.map((stg) => (
                             <div
                               key={stg.step}
@@ -173,7 +173,7 @@ export const SelectedWorkSection: React.FC<SelectedWorkSectionProps> = ({
                       </div>
                     </div>
 
-                    <div className="pt-6 border-t border-[#81776C]/40 flex items-center justify-between text-[10px] font-mono text-[#81776C] mt-6">
+                    <div className="pt-6 border-t border-[#81776C]/40 flex items-center justify-between text-xs font-mono text-[#81776C] mt-6">
                       <span>CLIENT: {project.client.toUpperCase()}</span>
                       <span className="text-[#527A5A]">● ZERO REGRESSION RATE</span>
                     </div>

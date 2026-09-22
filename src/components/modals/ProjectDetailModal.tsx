@@ -42,7 +42,7 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
 
             <button
               onClick={onClose}
-              className="p-1.5 border border-[#CFC5B8] hover:border-[#24211D] text-[#24211D] bg-[#FFFDF9] transition-colors"
+              className="btn-icon"
               aria-label="Close project modal"
             >
               <X className="w-4 h-4" />
@@ -66,7 +66,7 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
               {project.impactMetrics.map((m, idx) => (
                 <div key={idx} className="p-3 bg-[#FFFDF9] border border-[#CFC5B8]">
                   <div className="text-lg font-bold text-[#B56A3A]">{m.value}</div>
-                  <div className="text-[10px] text-[#81776C] uppercase mt-0.5">{m.label}</div>
+                  <div className="text-xs text-[#81776C] uppercase mt-0.5">{m.label}</div>
                 </div>
               ))}
             </div>
@@ -93,8 +93,8 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
                         : 'border-[#CFC5B8] bg-[#F5F0E8] text-[#81776C] hover:border-[#24211D]'
                     }`}
                   >
-                    <div className="text-[10px] font-bold text-[#B56A3A]">{stg.step}</div>
-                    <div className="truncate text-[11px] font-medium">{stg.title}</div>
+                    <div className="text-xs font-bold text-[#B56A3A]">{stg.step}</div>
+                    <div className="truncate text-xs font-medium">{stg.title}</div>
                   </button>
                 );
               })}
@@ -126,7 +126,7 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
 
               {currentStage.codeOrMetricSnippet && (
                 <div className="p-3 bg-[#1C1A17] border border-[#24211D] text-[#CFC5B8] font-mono text-xs mt-3">
-                  <span className="text-[#81776C] block text-[10px] mb-1">// TELEMETRY PROBE:</span>
+                  <span className="text-[#81776C] block text-xs mb-1">// TELEMETRY PROBE:</span>
                   <code className="text-[#FFFDF9]">{currentStage.codeOrMetricSnippet}</code>
                 </div>
               )}
@@ -143,7 +143,7 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
           <div className="flex items-center gap-3">
             <button
               onClick={onClose}
-              className="px-4 py-2 border border-[#CFC5B8] hover:border-[#24211D] transition-colors"
+              className="btn-secondary"
             >
               Close
             </button>
@@ -153,7 +153,7 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
                 onClose();
                 onCommissionSimilar(project.category);
               }}
-              className="px-5 py-2 bg-[#24211D] hover:bg-[#B56A3A] text-[#FFFDF9] transition-colors flex items-center gap-1.5 uppercase font-semibold"
+              className="btn-primary"
             >
               <span>Commission Similar System</span>
               <ArrowUpRight className="w-3.5 h-3.5" />

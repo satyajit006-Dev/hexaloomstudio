@@ -30,7 +30,7 @@ export const TestimonialsSection: React.FC = () => {
               <span>//</span>
               <span>VERIFIED TRUST</span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-bold font-sans text-[#24211D] tracking-tight uppercase">
+            <h2 className="text-3xl sm:text-5xl font-bold font-sans text-[#24211D] tracking-tight">
               Client Feedback
             </h2>
           </div>
@@ -53,25 +53,26 @@ export const TestimonialsSection: React.FC = () => {
                 <div className="font-sans font-bold text-lg text-[#24211D]">
                   {current.author}
                 </div>
-                <div className="font-mono text-xs text-[#81776C]">
-                  {current.role} &mdash; <span className="text-[#24211D] font-medium">{current.company}</span>
+                <div className="font-mono text-xs text-[#5C5449] font-medium">
+                  {current.role} &mdash; <span className="text-[#24211D] font-semibold">{current.company}</span>
                 </div>
-                <div className="font-mono text-[11px] text-[#B56A3A] mt-1 flex items-center gap-1.5">
-                  <CheckCircle className="w-3.5 h-3.5" />
-                  <span>ENGAGEMENT: {current.project}</span>
+                {/* High contrast verified engagement proof badge */}
+                <div className="mt-2 inline-flex items-center gap-1.5 px-2.5 py-1 bg-[#24211D] text-[#FFFDF9] font-mono text-xs font-semibold rounded-xs">
+                  <CheckCircle className="w-3.5 h-3.5 text-[#B56A3A]" />
+                  <span>VERIFIED ENGAGEMENT: {current.project}</span>
                 </div>
               </div>
 
               {/* Navigation Controls */}
               <div className="flex items-center gap-2 font-mono text-xs">
-                <span className="text-[#81776C] mr-2">
+                <span className="text-[#24211D] font-bold mr-2">
                   0{activeIndex + 1} / 0{TESTIMONIALS_DATA.length}
                 </span>
 
                 <button
                   id="testimonial-prev-btn"
                   onClick={prevTestimonial}
-                  className="w-10 h-10 border border-[#CFC5B8] hover:border-[#24211D] bg-[#FFFDF9] flex items-center justify-center transition-colors focus:outline-none"
+                  className="btn-icon"
                   aria-label="Previous testimonial"
                 >
                   <ChevronLeft className="w-4 h-4 text-[#24211D]" />
@@ -80,7 +81,7 @@ export const TestimonialsSection: React.FC = () => {
                 <button
                   id="testimonial-next-btn"
                   onClick={nextTestimonial}
-                  className="w-10 h-10 border border-[#24211D] bg-[#24211D] text-[#FFFDF9] hover:bg-[#B56A3A] hover:border-[#B56A3A] flex items-center justify-center transition-colors focus:outline-none"
+                  className="btn-icon bg-[#24211D] text-[#FFFDF9] hover:bg-[#B56A3A] hover:border-[#B56A3A]"
                   aria-label="Next testimonial"
                 >
                   <ChevronRight className="w-4 h-4" />

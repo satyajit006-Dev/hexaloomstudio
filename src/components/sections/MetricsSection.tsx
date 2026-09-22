@@ -84,7 +84,7 @@ export const MetricsSection: React.FC<MetricsSectionProps> = ({ reducedMotion })
               <span>//</span>
               <span>QUANTIFIABLE RECORD</span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-bold font-sans text-[#24211D] tracking-tight uppercase">
+            <h2 className="text-3xl sm:text-5xl font-bold font-sans text-[#24211D] tracking-tight">
               Studio Metrics
             </h2>
           </div>

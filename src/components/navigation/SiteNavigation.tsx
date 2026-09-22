@@ -28,6 +28,18 @@ export const SiteNavigation: React.FC<SiteNavigationProps> = ({
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Lock body scroll when mobile menu or spatial index drawer is open
+  useEffect(() => {
+    if (mobileMenuOpen || indexDrawerOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [mobileMenuOpen, indexDrawerOpen]);
+
   const handleNavClick = (id: string) => {
     onJumpToScene(id);
     setMobileMenuOpen(false);
@@ -48,8 +60,8 @@ export const SiteNavigation: React.FC<SiteNavigationProps> = ({
       <header
         id="site-header"
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ease-out border-b ${
-          isScrolled
-            ? 'bg-[#F5F0E8]/90 backdrop-blur-md py-3.5 border-[#CFC5B8]/60 shadow-xs'
+          isScrolled || mobileMenuOpen
+            ? 'bg-[#F5F0E8]/95 backdrop-blur-md py-3.5 border-[#CFC5B8]/80 shadow-xs'
             : 'bg-transparent py-6 md:py-8 border-transparent'
         }`}
       >
@@ -90,7 +102,7 @@ export const SiteNavigation: React.FC<SiteNavigationProps> = ({
             <button
               id="nav-index-drawer-toggle"
               onClick={() => setIndexDrawerOpen(true)}
-              className="px-2.5 py-1 text-[#81776C] hover:text-[#24211D] border border-[#CFC5B8] text-[11px] flex items-center gap-1.5 transition-colors"
+              className="px-2.5 py-1 text-[#81776C] hover:text-[#24211D] border border-[#CFC5B8] text-xs flex items-center gap-1.5 transition-colors"
             >
               <Sliders className="w-3 h-3 text-[#B56A3A]" />
               <span>INDEX</span>
@@ -99,66 +111,60 @@ export const SiteNavigation: React.FC<SiteNavigationProps> = ({
 
           {/* Right Action Cluster */}
           <div className="flex items-center gap-3">
-            {/* Direct CTA */}
-            <button
-              id="nav-cta-start-project"
-              onClick={() => handleNavClick('contact')}
-              className="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 bg-[#24211D] hover:bg-[#B56A3A] text-[#FFFDF9] font-mono text-xs tracking-wider transition-colors"
-            >
-              <span>START A PROJECT</span>
-              <ArrowUpRight className="w-3.5 h-3.5" />
-            </button>
-
-            {/* Mobile Hamburger Menu */}
+            {/* Mobile / Tablet Hamburger Menu Button -> Opens Index Page / Drawer */}
             <button
               id="mobile-nav-hamburger"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden p-2 text-[#24211D] border border-[#CFC5B8] bg-[#FFFDF9] focus:outline-none"
-              aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
-              aria-expanded={mobileMenuOpen}
+              onClick={() => {
+                setIndexDrawerOpen(!indexDrawerOpen);
+                setMobileMenuOpen(false);
+              }}
+              className="lg:hidden btn-icon"
+              aria-label={indexDrawerOpen ? 'Close index menu' : 'Open index menu'}
+              aria-expanded={indexDrawerOpen}
             >
-              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+              {indexDrawerOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
           </div>
         </div>
 
-        {/* Mobile slide-down menu */}
+        {/* Mobile slide-down menu bar - perfectly scrollable on all phone screens */}
         {mobileMenuOpen && (
           <div
             id="mobile-nav-sheet"
-            className="md:hidden border-b border-[#CFC5B8] bg-[#F5F0E8] px-6 py-6 shadow-md animate-in slide-in-from-top-2 duration-200"
+            className="lg:hidden border-b border-[#CFC5B8] bg-[#F5F0E8] px-6 py-6 shadow-xl animate-in slide-in-from-top-2 duration-200 max-h-[calc(100dvh-4.5rem)] overflow-y-auto overscroll-contain"
+            style={{ WebkitOverflowScrolling: 'touch' }}
           >
-            <div className="flex flex-col gap-3 font-mono text-sm mb-6">
-              {SITE_CONFIG.navItems.map((item) => (
-                <button
-                  key={item.id}
-                  id={`mobile-nav-item-${item.id}`}
-                  onClick={() => handleNavClick(item.id)}
-                  className="flex items-center justify-between py-2 border-b border-[#CFC5B8]/40 text-left text-[#24211D]"
-                >
-                  <span className="flex items-center gap-2">
-                    <span className="text-xs text-[#B56A3A]">{item.sceneNumber}</span>
-                    <span>{item.label}</span>
-                  </span>
-                  <ArrowUpRight className="w-4 h-4 text-[#81776C]" />
-                </button>
-              ))}
+            <div className="flex flex-col gap-2.5 font-mono text-sm mb-6">
+              {SITE_CONFIG.navItems.map((item) => {
+                const isActive = currentScene === item.id;
+                return (
+                  <button
+                    key={item.id}
+                    id={`mobile-nav-item-${item.id}`}
+                    onClick={() => handleNavClick(item.id)}
+                    className={`flex items-center justify-between py-2.5 px-2 border-b border-[#CFC5B8]/40 text-left transition-colors rounded-xs ${
+                      isActive
+                        ? 'bg-[#B56A3A]/10 text-[#B56A3A] font-semibold border-b-[#B56A3A]'
+                        : 'text-[#24211D] hover:bg-[#FFFDF9]'
+                    }`}
+                  >
+                    <span className="flex items-center gap-2.5">
+                      <span className={`text-xs font-bold ${isActive ? 'text-[#B56A3A]' : 'text-[#81776C]'}`}>
+                        {item.sceneNumber}
+                      </span>
+                      <span>{item.label}</span>
+                    </span>
+                    <ArrowUpRight className="w-4 h-4 text-[#81776C]" />
+                  </button>
+                );
+              })}
             </div>
 
-            <div className="flex flex-col gap-3 pt-2">
-              <button
-                id="mobile-toggle-motion-btn"
-                onClick={onToggleReducedMotion}
-                className="w-full py-2 border border-[#CFC5B8] font-mono text-xs text-[#24211D] flex items-center justify-center gap-2"
-              >
-                <Sparkles className="w-3.5 h-3.5 text-[#B56A3A]" />
-                <span>ANIMATION MODE: {reducedMotion ? 'MINIMAL' : 'FULL SCROLL'}</span>
-              </button>
-
+            <div className="flex flex-col gap-3 pt-4 border-t border-[#CFC5B8] pb-6">
               <button
                 id="mobile-cta-btn"
                 onClick={() => handleNavClick('contact')}
-                className="w-full py-3 bg-[#24211D] text-[#FFFDF9] font-mono text-xs tracking-wider uppercase flex items-center justify-center gap-2"
+                className="btn-primary w-full flex items-center justify-center gap-2"
               >
                 <span>START A PROJECT</span>
                 <ArrowUpRight className="w-4 h-4" />
@@ -177,7 +183,8 @@ export const SiteNavigation: React.FC<SiteNavigationProps> = ({
         >
           <div
             id="spatial-index-panel"
-            className="w-full max-w-md bg-[#F5F0E8] h-full p-8 border-l border-[#CFC5B8] overflow-y-auto flex flex-col justify-between"
+            className="w-full sm:max-w-md bg-[#F5F0E8] h-full p-6 sm:p-8 border-l border-[#CFC5B8] overflow-y-auto flex flex-col justify-between shadow-2xl overscroll-contain"
+            style={{ WebkitOverflowScrolling: 'touch' }}
             onClick={(e) => e.stopPropagation()}
           >
             <div>
@@ -221,7 +228,7 @@ export const SiteNavigation: React.FC<SiteNavigationProps> = ({
                         <span className="font-medium">{item.label}</span>
                       </div>
                       {isCurrent && (
-                        <span className="text-[10px] text-[#B56A3A] uppercase tracking-wider">
+                        <span className="text-xs text-[#B56A3A] uppercase tracking-wider">
                           ACTIVE
                         </span>
                       )}
@@ -234,16 +241,6 @@ export const SiteNavigation: React.FC<SiteNavigationProps> = ({
             <div className="pt-8 border-t border-[#CFC5B8] mt-8 text-xs font-mono text-[#81776C] space-y-1">
               <div className="text-[#24211D] font-bold">HEXALOOM STUDIO &copy; 2026</div>
               <div>OFFICE: INFOCITY, BHUBANESWAR</div>
-              <div className="text-[11px] pt-1">
-                <a
-                  href={SITE_CONFIG.contact.instagramUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-[#B56A3A] hover:underline"
-                >
-                  Instagram: {SITE_CONFIG.contact.instagramHandle}
-                </a>
-              </div>
             </div>
           </div>
         </div>

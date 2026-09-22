@@ -52,7 +52,7 @@ export const ProcessTimelineSection: React.FC<ProcessTimelineProps> = ({ reduced
               <span>//</span>
               <span>ENGINEERING PROTOCOL</span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-bold font-sans text-[#24211D] tracking-tight uppercase">
+            <h2 className="text-3xl sm:text-5xl font-bold font-sans text-[#24211D] tracking-tight">
               Development Process
             </h2>
           </div>
@@ -106,7 +106,7 @@ export const ProcessTimelineSection: React.FC<ProcessTimelineProps> = ({ reduced
                       }`}
                     />
                     <span
-                      className={`text-[10px] sm:text-xs font-bold transition-colors ${
+                      className={`text-xs font-bold transition-colors ${
                         isCurrent
                           ? 'text-[#B56A3A]'
                           : isReached
@@ -116,7 +116,7 @@ export const ProcessTimelineSection: React.FC<ProcessTimelineProps> = ({ reduced
                     >
                       {stg.name}
                     </span>
-                    <span className="hidden md:inline text-[9px] text-[#81776C]">
+                    <span className="hidden md:inline text-xs text-[#81776C]">
                       {stg.duration}
                     </span>
                   </button>
@@ -151,7 +151,7 @@ export const ProcessTimelineSection: React.FC<ProcessTimelineProps> = ({ reduced
                       STAGE {stage.number}
                     </span>
                     <span
-                      className={`px-2 py-0.5 text-[10px] uppercase border ${
+                      className={`px-2 py-0.5 text-xs uppercase border ${
                         isCurrent
                           ? 'border-[#81776C] text-[#CFC5B8]'
                           : 'border-[#CFC5B8] text-[#81776C]'
@@ -161,7 +161,7 @@ export const ProcessTimelineSection: React.FC<ProcessTimelineProps> = ({ reduced
                     </span>
                   </div>
 
-                  <h3 className="text-xl font-bold font-sans tracking-tight uppercase mb-1">
+                  <h3 className="text-xl font-bold font-sans tracking-tight mb-1">
                     {stage.name}
                   </h3>
                   <div
@@ -182,7 +182,7 @@ export const ProcessTimelineSection: React.FC<ProcessTimelineProps> = ({ reduced
 
                   <div className="space-y-2 mb-6">
                     <div
-                      className={`font-mono text-[10px] uppercase tracking-wider ${
+                      className={`font-mono text-xs uppercase tracking-wider ${
                         isCurrent ? 'text-[#CFC5B8]' : 'text-[#81776C]'
                       }`}
                     >
@@ -207,7 +207,7 @@ export const ProcessTimelineSection: React.FC<ProcessTimelineProps> = ({ reduced
                 </div>
 
                 <div
-                  className={`pt-4 border-t text-[11px] font-mono ${
+                  className={`pt-4 border-t text-xs font-mono ${
                     isCurrent
                       ? 'border-[#81776C]/40 text-[#CFC5B8]'
                       : 'border-[#CFC5B8]/80 text-[#81776C]'

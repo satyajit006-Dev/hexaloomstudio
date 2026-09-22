@@ -55,7 +55,7 @@ export const Preloader: React.FC<PreloaderProps> = ({ onComplete, reducedMotion 
           HEXALOOM STUDIO
         </p>
 
-        <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-[#81776C] mb-4">
+        <p className="font-mono text-xs uppercase tracking-[0.25em] text-[#81776C] mb-4">
           CODE. DESIGN. INNOVATE.
         </p>
 
@@ -71,7 +71,7 @@ export const Preloader: React.FC<PreloaderProps> = ({ onComplete, reducedMotion 
           />
         </div>
 
-        <div className="flex justify-between w-56 font-mono text-[11px] text-[#81776C]">
+        <div className="flex justify-between w-56 font-mono text-xs text-[#81776C]">
           <span>INIT_RUNTIME</span>
           <span className="text-[#24211D] font-medium">{progress}%</span>
         </div>

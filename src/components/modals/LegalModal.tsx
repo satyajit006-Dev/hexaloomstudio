@@ -33,7 +33,7 @@ export const LegalModal: React.FC<LegalModalProps> = ({ type, onClose }) => {
 
             <button
               onClick={onClose}
-              className="p-1.5 border border-[#CFC5B8] hover:border-[#24211D] text-[#24211D] bg-[#FFFDF9] transition-colors"
+              className="btn-icon"
               aria-label="Close modal"
             >
               <X className="w-4 h-4" />
@@ -45,7 +45,7 @@ export const LegalModal: React.FC<LegalModalProps> = ({ type, onClose }) => {
             {type === 'privacy' ? (
               <>
                 <div>
-                  <h3 className="font-sans font-bold text-lg text-[#24211D] uppercase mb-2">
+                  <h3 className="font-sans font-bold text-lg text-[#24211D] mb-2">
                     1. Identity & Data Controller
                   </h3>
                   <p>
@@ -54,7 +54,7 @@ export const LegalModal: React.FC<LegalModalProps> = ({ type, onClose }) => {
                 </div>
 
                 <div>
-                  <h3 className="font-sans font-bold text-lg text-[#24211D] uppercase mb-2">
+                  <h3 className="font-sans font-bold text-lg text-[#24211D] mb-2">
                     2. Information We Collect
                   </h3>
                   <p>
@@ -69,7 +69,7 @@ export const LegalModal: React.FC<LegalModalProps> = ({ type, onClose }) => {
                 </div>
 
                 <div>
-                  <h3 className="font-sans font-bold text-lg text-[#24211D] uppercase mb-2">
+                  <h3 className="font-sans font-bold text-lg text-[#24211D] mb-2">
                     3. Analytics & Cookie Tracking
                   </h3>
                   <p>
@@ -78,7 +78,7 @@ export const LegalModal: React.FC<LegalModalProps> = ({ type, onClose }) => {
                 </div>
 
                 <div>
-                  <h3 className="font-sans font-bold text-lg text-[#24211D] uppercase mb-2">
+                  <h3 className="font-sans font-bold text-lg text-[#24211D] mb-2">
                     4. Third-Party Integrations & External Links
                   </h3>
                   <p>
@@ -87,7 +87,7 @@ export const LegalModal: React.FC<LegalModalProps> = ({ type, onClose }) => {
                 </div>
 
                 <div>
-                  <h3 className="font-sans font-bold text-lg text-[#24211D] uppercase mb-2">
+                  <h3 className="font-sans font-bold text-lg text-[#24211D] mb-2">
                     5. Data Security & Retention
                   </h3>
                   <p>
@@ -96,7 +96,7 @@ export const LegalModal: React.FC<LegalModalProps> = ({ type, onClose }) => {
                 </div>
 
                 <div>
-                  <h3 className="font-sans font-bold text-lg text-[#24211D] uppercase mb-2">
+                  <h3 className="font-sans font-bold text-lg text-[#24211D] mb-2">
                     6. Contacting the Studio
                   </h3>
                   <p>
@@ -111,7 +111,7 @@ export const LegalModal: React.FC<LegalModalProps> = ({ type, onClose }) => {
             ) : (
               <>
                 <div>
-                  <h3 className="font-sans font-bold text-lg text-[#24211D] uppercase mb-2">
+                  <h3 className="font-sans font-bold text-lg text-[#24211D] mb-2">
                     1. Acceptance of Terms
                   </h3>
                   <p>
@@ -120,7 +120,7 @@ export const LegalModal: React.FC<LegalModalProps> = ({ type, onClose }) => {
                 </div>
 
                 <div>
-                  <h3 className="font-sans font-bold text-lg text-[#24211D] uppercase mb-2">
+                  <h3 className="font-sans font-bold text-lg text-[#24211D] mb-2">
                     2. Intellectual Property Rights
                   </h3>
                   <p>
@@ -129,7 +129,7 @@ export const LegalModal: React.FC<LegalModalProps> = ({ type, onClose }) => {
                 </div>
 
                 <div>
-                  <h3 className="font-sans font-bold text-lg text-[#24211D] uppercase mb-2">
+                  <h3 className="font-sans font-bold text-lg text-[#24211D] mb-2">
                     3. Case Studies & Client Attribution
                   </h3>
                   <p>
@@ -138,7 +138,7 @@ export const LegalModal: React.FC<LegalModalProps> = ({ type, onClose }) => {
                 </div>
 
                 <div>
-                  <h3 className="font-sans font-bold text-lg text-[#24211D] uppercase mb-2">
+                  <h3 className="font-sans font-bold text-lg text-[#24211D] mb-2">
                     4. Scope Estimates & Non-Binding Inquiries
                   </h3>
                   <p>
@@ -147,7 +147,7 @@ export const LegalModal: React.FC<LegalModalProps> = ({ type, onClose }) => {
                 </div>
 
                 <div>
-                  <h3 className="font-sans font-bold text-lg text-[#24211D] uppercase mb-2">
+                  <h3 className="font-sans font-bold text-lg text-[#24211D] mb-2">
                     5. Limitation of Liability
                   </h3>
                   <p>
@@ -156,7 +156,7 @@ export const LegalModal: React.FC<LegalModalProps> = ({ type, onClose }) => {
                 </div>
 
                 <div>
-                  <h3 className="font-sans font-bold text-lg text-[#24211D] uppercase mb-2">
+                  <h3 className="font-sans font-bold text-lg text-[#24211D] mb-2">
                     6. Governing Jurisdiction
                   </h3>
                   <p>
@@ -173,7 +173,7 @@ export const LegalModal: React.FC<LegalModalProps> = ({ type, onClose }) => {
           <span className="text-[#81776C]">LAST REVISED: SEPTEMBER 2026</span>
           <button
             onClick={onClose}
-            className="px-5 py-2 bg-[#24211D] text-[#FFFDF9] hover:bg-[#B56A3A] transition-colors uppercase font-mono text-xs"
+            className="btn-primary"
           >
             Acknowledge & Close
           </button>

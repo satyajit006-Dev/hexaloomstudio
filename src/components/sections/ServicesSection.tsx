@@ -29,7 +29,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
               <span>//</span>
               <span>STUDIO SERVICE CATALOG</span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-bold font-sans text-[#24211D] tracking-tight uppercase">
+            <h2 className="text-3xl sm:text-5xl font-bold font-sans text-[#24211D] tracking-tight">
               What We Build
             </h2>
           </div>
@@ -46,45 +46,61 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
               <div
                 key={service.id}
                 id={`service-card-${service.id}`}
-                className={`border transition-all duration-200 ${
+                className={`border transition-all duration-200 group ${
                   isExpanded
                     ? 'border-[#24211D] bg-[#FFFDF9] shadow-xs'
                     : 'border-[#CFC5B8] bg-[#FFFDF9]/60 hover:border-[#81776C]'
                 }`}
               >
                 {/* Header Strip / Clickable Trigger */}
-                <button
-                  onClick={() => toggleExpand(service.id)}
-                  className="w-full p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center justify-between text-left gap-4 focus:outline-none focus-visible:ring-1 focus-visible:ring-[#B56A3A]"
-                  aria-expanded={isExpanded}
-                >
-                  <div className="flex items-start sm:items-center gap-4 sm:gap-8">
+                <div className="p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                  <button
+                    onClick={() => toggleExpand(service.id)}
+                    className="flex-1 flex items-start sm:items-center gap-4 sm:gap-8 text-left focus:outline-none focus-visible:ring-1 focus-visible:ring-[#B56A3A]"
+                    aria-expanded={isExpanded}
+                  >
                     <span className="font-mono text-sm sm:text-base font-bold text-[#B56A3A]">
                       {service.number}
                     </span>
                     <div>
-                      <div className="font-mono text-[10px] text-[#81776C] tracking-widest uppercase mb-1">
+                      <div className="font-mono text-xs text-[#81776C] tracking-wider uppercase mb-1">
                         {service.categoryTag}
                       </div>
-                      <h3 className="text-xl sm:text-2xl font-bold font-sans text-[#24211D] tracking-tight uppercase">
+                      <h3 className="text-xl sm:text-2xl font-bold font-sans text-[#24211D] tracking-tight group-hover:text-[#B56A3A] transition-colors">
                         {service.title}
                       </h3>
                     </div>
-                  </div>
+                  </button>
 
-                  <div className="flex items-center gap-4 self-end sm:self-center">
+                  <div className="flex items-center gap-3 self-end sm:self-center shrink-0">
                     <span className="font-mono text-xs text-[#81776C] hidden md:inline">
                       {service.specs.latency}
                     </span>
-                    <div
+
+                    {/* Quick direct CTA always accessible in collapsed state */}
+                    <button
+                      type="button"
+                      onClick={() => onSelectService(service.title)}
+                      className="btn-secondary py-1.5 px-3 text-xs"
+                      title={`Commission or inquire about ${service.title}`}
+                    >
+                      <span>Inquire</span>
+                      <ArrowUpRight className="w-3.5 h-3.5 text-[#B56A3A]" />
+                    </button>
+
+                    {/* Expand/Collapse toggle button */}
+                    <button
+                      type="button"
+                      onClick={() => toggleExpand(service.id)}
+                      aria-label={isExpanded ? `Collapse ${service.title}` : `Expand details for ${service.title}`}
                       className={`w-8 h-8 rounded-full border border-[#CFC5B8] flex items-center justify-center transition-transform duration-200 ${
-                        isExpanded ? 'rotate-180 bg-[#24211D] text-[#FFFDF9]' : 'text-[#24211D]'
+                        isExpanded ? 'rotate-180 bg-[#24211D] text-[#FFFDF9]' : 'text-[#24211D] hover:border-[#24211D]'
                       }`}
                     >
                       <ChevronDown className="w-4 h-4" />
-                    </div>
+                    </button>
                   </div>
-                </button>
+                </div>
 
                 {/* Expanded Details Body */}
                 {isExpanded && (
@@ -95,7 +111,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
                       </p>
 
                       <div className="pt-2">
-                        <div className="font-mono text-[11px] font-semibold text-[#81776C] uppercase tracking-wider mb-2">
+                        <div className="font-mono text-xs font-semibold text-[#81776C] uppercase tracking-wider mb-2">
                           Key Deliverables
                         </div>
                         <ul className="space-y-2">
@@ -123,14 +139,14 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
                         </div>
 
                         <div>
-                          <span className="font-mono text-[11px] text-[#81776C] block mb-2">
+                          <span className="font-mono text-xs text-[#81776C] block mb-2">
                             PRIMARY TOOLSETS:
                           </span>
                           <div className="flex flex-wrap gap-2">
                             {service.specs.stack.map((tech, tIdx) => (
                               <span
                                 key={tIdx}
-                                className="px-2.5 py-1 bg-[#F5F0E8] border border-[#CFC5B8] text-[11px] font-mono text-[#24211D]"
+                                className="px-2.5 py-1 bg-[#F5F0E8] border border-[#CFC5B8] text-xs font-mono text-[#24211D]"
                               >
                                 {tech}
                               </span>
@@ -140,16 +156,16 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
                       </div>
 
                       <div className="pt-4 border-t border-[#CFC5B8]/60 flex items-center justify-between">
-                        <span className="font-mono text-[11px] text-[#81776C]">
+                        <span className="font-mono text-xs text-[#81776C]">
                           ORDER CODE: #{service.number} // AUDIT_READY
                         </span>
 
                         <button
                           onClick={() => onSelectService(service.title)}
-                          className="px-4 py-2 bg-[#24211D] hover:bg-[#B56A3A] text-[#FFFDF9] font-mono text-xs tracking-wider uppercase transition-colors flex items-center gap-1.5"
+                          className="btn-primary"
                         >
                           <span>Commission {service.title.split(' ')[0]}</span>
-                          <ArrowUpRight className="w-3.5 h-3.5" />
+                          <ArrowUpRight className="w-4 h-4" />
                         </button>
                       </div>
                     </div>

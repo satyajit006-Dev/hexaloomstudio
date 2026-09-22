@@ -63,7 +63,7 @@ export const CookieConsent: React.FC = () => {
       </div>
 
       {showPreferences && (
-        <div className="py-3 my-3 border-y border-[#CFC5B8] space-y-2.5 text-[11px]">
+        <div className="py-3 my-3 border-y border-[#CFC5B8] space-y-2.5 text-xs">
           <div className="flex items-center justify-between">
             <div>
               <span className="font-bold text-[#24211D]">Essential System Storage</span>
@@ -109,7 +109,7 @@ export const CookieConsent: React.FC = () => {
       <div className="flex flex-wrap items-center justify-between gap-2 pt-2">
         <button
           onClick={() => setShowPreferences(!showPreferences)}
-          className="text-[#81776C] hover:text-[#24211D] underline text-[11px] flex items-center gap-1 focus:outline-none"
+          className="text-[#81776C] hover:text-[#24211D] underline text-xs flex items-center gap-1 focus:outline-none"
         >
           <Sliders className="w-3 h-3 text-[#B56A3A]" />
           <span>{showPreferences ? 'Hide Options' : 'Preferences'}</span>
@@ -119,7 +119,7 @@ export const CookieConsent: React.FC = () => {
           {showPreferences ? (
             <button
               onClick={handleSaveCustom}
-              className="px-3 py-1.5 bg-[#24211D] text-[#FFFDF9] hover:bg-[#B56A3A] transition-colors uppercase text-[11px]"
+              className="btn-primary"
             >
               Save Preferences
             </button>
@@ -128,14 +128,14 @@ export const CookieConsent: React.FC = () => {
               <button
                 id="cookie-reject-btn"
                 onClick={handleRejectAll}
-                className="px-3 py-1.5 border border-[#CFC5B8] hover:border-[#24211D] text-[#24211D] transition-colors uppercase text-[11px]"
+                className="btn-secondary"
               >
                 Reject Non-Essential
               </button>
               <button
                 id="cookie-accept-btn"
                 onClick={handleAcceptAll}
-                className="px-3 py-1.5 bg-[#24211D] hover:bg-[#B56A3A] text-[#FFFDF9] transition-colors uppercase text-[11px] font-bold"
+                className="btn-primary"
               >
                 Accept All
               </button>

@@ -23,7 +23,7 @@ export const TeamSection: React.FC<TeamSectionProps> = ({ onContactLeadership })
               <span>//</span>
               <span>ENGINEERING PRINCIPALS</span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-bold font-sans text-[#24211D] tracking-tight uppercase">
+            <h2 className="text-3xl sm:text-5xl font-bold font-sans text-[#24211D] tracking-tight">
               Senior Leadership
             </h2>
           </div>
@@ -60,7 +60,7 @@ export const TeamSection: React.FC<TeamSectionProps> = ({ onContactLeadership })
                       <span>//</span>
                       <span className="uppercase text-[#24211D] font-medium">HEXALOOM CORE</span>
                     </div>
-                    <div className="flex items-center gap-1.5 text-[11px] text-[#527A5A]">
+                    <div className="flex items-center gap-1.5 text-xs text-[#527A5A]">
                       <span className="w-2 h-2 rounded-full bg-[#527A5A] animate-pulse" />
                       <span>ACTIVE PROD</span>
                     </div>
@@ -69,9 +69,18 @@ export const TeamSection: React.FC<TeamSectionProps> = ({ onContactLeadership })
                   {/* Dev Identity & Title */}
                   <div className="flex items-start justify-between gap-4 mb-6">
                     <div className="space-y-1.5">
-                      <h3 className="text-2xl sm:text-3xl font-bold font-sans text-[#24211D] tracking-tight group-hover:text-[#B56A3A] transition-colors">
-                        {dev.name}
-                      </h3>
+                      <a
+                        href={dev.portfolioUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-block group/link"
+                        title={`Open ${dev.name}'s portfolio`}
+                      >
+                        <h3 className="text-2xl sm:text-3xl font-bold font-sans text-[#24211D] tracking-tight group-hover/link:text-[#B56A3A] transition-colors flex items-center gap-2">
+                          <span>{dev.name}</span>
+                          <ArrowUpRight className="w-5 h-5 text-[#81776C] group-hover/link:text-[#B56A3A] group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-all" />
+                        </h3>
+                      </a>
                       <div className="font-mono text-xs text-[#B56A3A] uppercase tracking-wide font-semibold flex items-center gap-2">
                         {isFirst ? <Cpu className="w-3.5 h-3.5" /> : <Layers className="w-3.5 h-3.5" />}
                         <span>{dev.role}</span>
@@ -79,9 +88,15 @@ export const TeamSection: React.FC<TeamSectionProps> = ({ onContactLeadership })
                     </div>
 
                     {/* Monogram Badge */}
-                    <div className="w-12 h-12 border border-[#24211D] bg-[#24211D] text-[#FFFDF9] flex items-center justify-center font-mono text-base font-bold shrink-0 shadow-xs">
+                    <a
+                      href={dev.portfolioUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      title={`Open ${dev.name}'s portfolio`}
+                      className="w-12 h-12 border border-[#24211D] bg-[#24211D] text-[#FFFDF9] hover:bg-[#B56A3A] hover:border-[#B56A3A] flex items-center justify-center font-mono text-base font-bold shrink-0 shadow-xs transition-colors"
+                    >
                       {dev.initials}
-                    </div>
+                    </a>
                   </div>
 
                   {/* Bio */}
@@ -90,37 +105,42 @@ export const TeamSection: React.FC<TeamSectionProps> = ({ onContactLeadership })
                   </p>
 
                   {/* Terminal-style Telemetry Card */}
-                  <div className="p-4 bg-[#1C1A17] border border-[#24211D] text-[#CFC5B8] font-mono text-xs mb-6 space-y-2">
-                    <div className="flex items-center justify-between text-[10px] text-[#81776C] border-b border-[#81776C]/30 pb-1.5">
+                  <a
+                    href={dev.portfolioUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Visit ${dev.name}'s portfolio at ${dev.domain}`}
+                    className="block p-4 bg-[#1C1A17] border border-[#24211D] text-[#CFC5B8] font-mono text-xs mb-6 space-y-2 group/term hover:border-[#B56A3A] transition-colors rounded-xs"
+                  >
+                    <div className="flex items-center justify-between text-xs text-[#81776C] border-b border-[#81776C]/30 pb-2">
                       <span className="flex items-center gap-1.5">
-                        <Terminal className="w-3 h-3 text-[#B56A3A]" />
+                        <Terminal className="w-3.5 h-3.5 text-[#B56A3A]" />
                         <span>PORTFOLIO_ORIGIN</span>
                       </span>
-                      <span className="text-[#38BDF8]">{dev.domain}</span>
+                      <span className="text-[#38BDF8] font-semibold flex items-center gap-1 group-hover/term:text-[#7DD3FC] group-hover/term:underline cursor-pointer">
+                        <span>{dev.domain}</span>
+                        <ArrowUpRight className="w-3 h-3 text-[#38BDF8] group-hover/term:translate-x-0.5 group-hover/term:-translate-y-0.5 transition-transform" />
+                      </span>
                     </div>
-                    <div className="text-[11px] text-[#FFFDF9] flex items-center justify-between pt-1">
-                      <span className="text-[#81776C]">Direct URL:</span>
-                      <a
-                        href={dev.portfolioUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-[#38BDF8] hover:text-[#67E8F9] hover:underline font-mono truncate max-w-[220px] sm:max-w-xs"
-                      >
-                        {dev.portfolioUrl}
-                      </a>
+                    <div className="text-xs text-[#FFFDF9] flex items-center justify-between pt-1">
+                      <span className="text-[#81776C]">Verified Status:</span>
+                      <span className="text-[#527A5A] flex items-center gap-1.5 font-semibold">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#527A5A]" />
+                        Live Production &bull; Click to View &rarr;
+                      </span>
                     </div>
-                  </div>
+                  </a>
 
                   {/* Core Technical Capabilities Pills */}
                   <div className="space-y-2 mb-8">
-                    <div className="font-mono text-[10px] text-[#81776C] uppercase tracking-wider">
+                    <div className="font-mono text-xs text-[#81776C] uppercase tracking-wider">
                       Technical Specializations
                     </div>
                     <div className="flex flex-wrap gap-2">
                       {dev.skills.map((skill) => (
                         <span
                           key={skill}
-                          className="px-2.5 py-1 bg-[#F5F0E8] border border-[#CFC5B8] text-[11px] font-mono text-[#24211D]"
+                          className="px-2.5 py-1 bg-[#F5F0E8] border border-[#CFC5B8] text-xs font-mono text-[#24211D]"
                         >
                           {skill}
                         </span>
@@ -136,7 +156,7 @@ export const TeamSection: React.FC<TeamSectionProps> = ({ onContactLeadership })
                     href={dev.portfolioUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-5 py-3 bg-[#24211D] hover:bg-[#B56A3A] text-[#FFFDF9] transition-all flex items-center justify-center gap-2 font-semibold shadow-xs"
+                    className="btn-primary"
                   >
                     <span>View {dev.name.split(' ')[0]}&apos;s Portfolio</span>
                     <ArrowUpRight className="w-4 h-4" />
@@ -144,7 +164,7 @@ export const TeamSection: React.FC<TeamSectionProps> = ({ onContactLeadership })
 
                   <button
                     onClick={onContactLeadership}
-                    className="px-4 py-3 border border-[#CFC5B8] hover:border-[#24211D] text-[#24211D] hover:bg-[#FFFDF9] transition-colors flex items-center justify-center gap-1.5"
+                    className="btn-secondary"
                   >
                     <Code2 className="w-3.5 h-3.5 text-[#B56A3A]" />
                     <span>Engage with {dev.name.split(' ')[0]}</span>
@@ -168,7 +188,7 @@ export const TeamSection: React.FC<TeamSectionProps> = ({ onContactLeadership })
 
           <button
             onClick={onContactLeadership}
-            className="px-6 py-3.5 bg-[#B56A3A] hover:bg-[#FFFDF9] hover:text-[#24211D] text-[#FFFDF9] transition-all uppercase tracking-wider font-semibold shrink-0"
+            className="btn-accent shrink-0"
           >
             Start Project with Senior Team
           </button>

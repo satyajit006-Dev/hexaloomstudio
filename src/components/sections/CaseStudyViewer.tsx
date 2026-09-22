@@ -17,20 +17,31 @@ export const CaseStudyViewer: React.FC = () => {
     >
       <div className="max-w-7xl mx-auto px-6 sm:px-8">
         {/* Section Header */}
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between border-b border-[#CFC5B8] pb-6 mb-12 gap-4">
-          <div>
-            <div className="font-mono text-xs text-[#B56A3A] tracking-wider mb-2 flex items-center gap-2">
-              <span>SCENE 07</span>
-              <span>//</span>
-              <span>CONTINUOUS CASE STUDY AUDIT</span>
-            </div>
-            <h2 className="text-3xl sm:text-5xl font-bold font-sans text-[#24211D] tracking-tight uppercase">
+        <div className="border-b border-[#CFC5B8] pb-6 mb-8">
+          <div className="font-mono text-xs text-[#B56A3A] tracking-wider mb-2 flex items-center gap-2">
+            <span>SCENE 07</span>
+            <span>//</span>
+            <span>CONTINUOUS CASE STUDY AUDIT</span>
+          </div>
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+            <h2 className="text-3xl sm:text-5xl font-bold font-sans text-[#24211D] tracking-tight">
               5-Stage Engineering Breakdown
             </h2>
+            <div className="font-mono text-xs text-[#81776C]">
+              END-TO-END TECHNICAL DELIVERY PIPELINE
+            </div>
+          </div>
+        </div>
+
+        {/* Level 1: Project Selection Shelf (Hierarchical Grouping) */}
+        <div className="mb-8 p-4 bg-[#FFFDF9] border border-[#CFC5B8] flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div className="flex items-center gap-2 text-xs font-mono text-[#81776C]">
+            <Layers className="w-4 h-4 text-[#B56A3A]" />
+            <span className="font-semibold text-[#24211D]">SELECT PROJECT:</span>
+            <span className="text-xs text-[#81776C] hidden sm:inline">Choose an engagement to inspect</span>
           </div>
 
-          {/* Project Switcher Tabs */}
-          <div className="flex flex-wrap gap-2 font-mono text-xs">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
             {PROJECTS_DATA.map((proj) => (
               <button
                 key={proj.id}
@@ -39,19 +50,26 @@ export const CaseStudyViewer: React.FC = () => {
                   setActiveProject(proj);
                   setActiveStageIndex(0);
                 }}
-                className={`px-3 py-1.5 border transition-all ${
-                  activeProject.id === proj.id
-                    ? 'border-[#24211D] bg-[#24211D] text-[#FFFDF9]'
-                    : 'border-[#CFC5B8] bg-[#FFFDF9] text-[#81776C] hover:border-[#24211D]'
+                className={`btn-tab ${
+                  activeProject.id === proj.id ? 'active font-semibold' : ''
                 }`}
               >
-                PROJ {proj.number}: {proj.title.split(' ')[0]}
+                <span className="text-[#B56A3A] font-bold">{proj.number}</span>
+                <span className="truncate">{proj.title.split(' ')[0]}</span>
               </button>
             ))}
           </div>
         </div>
 
-        {/* 5-Stage Interactive Progress Bar */}
+        {/* Level 2: 5-Stage Interactive Progress Stepper for Selected Project */}
+        <div className="mb-3 flex items-center justify-between font-mono text-xs text-[#81776C]">
+          <span className="font-semibold text-[#24211D] flex items-center gap-1.5">
+            <span>PIPELINE STEPS FOR:</span>
+            <span className="text-[#B56A3A] font-bold uppercase">{activeProject.title}</span>
+          </span>
+          <span>STEP {activeStageIndex + 1} OF 5</span>
+        </div>
+
         <div className="grid grid-cols-5 gap-2 sm:gap-4 mb-8 font-mono text-xs">
           {activeProject.caseStudyStages.map((stage, idx) => {
             const isActive = idx === activeStageIndex;
@@ -126,9 +144,9 @@ export const CaseStudyViewer: React.FC = () => {
               <button
                 disabled={activeStageIndex === 0}
                 onClick={() => setActiveStageIndex((prev) => Math.max(prev - 1, 0))}
-                className="px-4 py-2 border border-[#CFC5B8] hover:border-[#24211D] disabled:opacity-40 disabled:cursor-not-allowed"
+                className="btn-secondary disabled:opacity-40 disabled:cursor-not-allowed"
               >
-                &larr; PREVIOUS STAGE
+                &larr; Previous Stage
               </button>
 
               <button
@@ -138,9 +156,9 @@ export const CaseStudyViewer: React.FC = () => {
                     Math.min(prev + 1, activeProject.caseStudyStages.length - 1)
                   )
                 }
-                className="px-4 py-2 bg-[#24211D] hover:bg-[#B56A3A] text-[#FFFDF9] disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+                className="btn-primary disabled:opacity-40 disabled:cursor-not-allowed"
               >
-                NEXT STAGE &rarr;
+                Next Stage &rarr;
               </button>
             </div>
           </div>
@@ -170,7 +188,7 @@ export const CaseStudyViewer: React.FC = () => {
               {/* Code / Command / Execution Snippet */}
               {currentStage.codeOrMetricSnippet && (
                 <div className="p-4 bg-[#141311] border border-[#81776C]/20 text-xs text-[#CFC5B8] leading-relaxed">
-                  <span className="text-[#81776C] block mb-1 text-[10px]">
+                  <span className="text-[#81776C] block mb-1 text-xs">
                     // MONITORED RUNTIME TRACE:
                   </span>
                   <code className="text-[#FFFDF9] break-all">
@@ -196,7 +214,7 @@ export const CaseStudyViewer: React.FC = () => {
               </div>
             </div>
 
-            <div className="pt-6 border-t border-[#81776C]/40 flex items-center justify-between text-[11px] text-[#81776C] mt-6">
+            <div className="pt-6 border-t border-[#81776C]/40 flex items-center justify-between text-xs text-[#81776C] mt-6">
               <span>PROJECT: {activeProject.title}</span>
               <span className="text-[#FFFDF9]">STAGE {currentStage.step} VERIFIED</span>
             </div>

@@ -766,7 +766,7 @@ export const WalkingAnimalTracker: React.FC<WalkingAnimalTrackerProps> = ({ redu
 
         {/* Minimalist Floating Status Tag (Interactive Feedback) */}
         <div
-          className={`ml-1.5 px-2 py-0.5 bg-[#000000] text-[#FFFDF9] border border-[#3A352F] shadow-md font-mono text-[9px] tracking-wider whitespace-nowrap transition-all duration-200 pointer-events-none flex items-center gap-1.5 ${
+          className={`ml-1.5 px-2 py-0.5 bg-[#000000] text-[#FFFDF9] border border-[#3A352F] shadow-md font-mono text-xs tracking-wider whitespace-nowrap transition-all duration-200 pointer-events-none flex items-center gap-1.5 ${
             showBubble
               ? 'opacity-100 translate-x-0 scale-100'
               : 'opacity-0 -translate-x-2 scale-95 group-hover:opacity-100 group-hover:translate-x-0 group-hover:scale-100'

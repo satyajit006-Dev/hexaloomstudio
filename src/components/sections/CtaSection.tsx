@@ -37,7 +37,7 @@ export const CtaSection: React.FC<CtaSectionProps> = ({ onStartProject }) => {
               <button
                 id="cta-start-conversation-btn"
                 onClick={onStartProject}
-                className="w-full sm:w-auto px-8 py-4 bg-[#B56A3A] hover:bg-[#FFFDF9] hover:text-[#24211D] text-[#FFFDF9] font-mono text-xs tracking-wider uppercase transition-all flex items-center justify-center gap-3 font-semibold shadow-md"
+                className="btn-accent w-full sm:w-auto flex items-center justify-center gap-3 shadow-md"
               >
                 <span>Start a conversation</span>
                 <ArrowUpRight className="w-4 h-4" />
@@ -55,7 +55,7 @@ export const CtaSection: React.FC<CtaSectionProps> = ({ onStartProject }) => {
         {/* Quick Contact Links Banner */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-10 font-mono text-xs text-[#CFC5B8]">
           <div className="p-4 border border-[#81776C]/30 bg-[#1C1A17]">
-            <div className="text-[10px] text-[#81776C] uppercase mb-1">DIRECT INQUIRY</div>
+            <div className="text-xs text-[#81776C] uppercase mb-1">DIRECT INQUIRY</div>
             <a
               href={`mailto:${SITE_CONFIG.contact.email}`}
               className="text-[#FFFDF9] hover:text-[#B56A3A] transition-colors font-medium break-all"
@@ -65,7 +65,7 @@ export const CtaSection: React.FC<CtaSectionProps> = ({ onStartProject }) => {
           </div>
 
           <div className="p-4 border border-[#81776C]/30 bg-[#1C1A17]">
-            <div className="text-[10px] text-[#81776C] uppercase mb-1">TELEPHONE DESK</div>
+            <div className="text-xs text-[#81776C] uppercase mb-1">TELEPHONE DESK</div>
             <div className="flex flex-col gap-1">
               <a
                 href={`tel:${SITE_CONFIG.contact.phone}`}
@@ -83,7 +83,7 @@ export const CtaSection: React.FC<CtaSectionProps> = ({ onStartProject }) => {
           </div>
 
           <div className="p-4 border border-[#81776C]/30 bg-[#1C1A17]">
-            <div className="text-[10px] text-[#81776C] uppercase mb-1">INSTAGRAM</div>
+            <div className="text-xs text-[#81776C] uppercase mb-1">INSTAGRAM</div>
             <a
               href={SITE_CONFIG.contact.instagramUrl}
               target="_blank"
@@ -96,7 +96,7 @@ export const CtaSection: React.FC<CtaSectionProps> = ({ onStartProject }) => {
           </div>
 
           <div className="p-4 border border-[#81776C]/30 bg-[#1C1A17]">
-            <div className="text-[10px] text-[#81776C] uppercase mb-1">WHATSAPP CHAT</div>
+            <div className="text-xs text-[#81776C] uppercase mb-1">WHATSAPP CHAT</div>
             <a
               href={SITE_CONFIG.contact.whatsappUrl}
               target="_blank"
