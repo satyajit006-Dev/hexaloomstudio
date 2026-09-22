@@ -5,7 +5,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     id: 'web-apps',
     number: '01',
     categoryTag: 'ORDER 001 / WEB ARCHITECTURE',
-    title: 'WEB APPLICATIONS',
+    title: 'Web Applications',
     summary: 'High-performance interactive web applications engineered with Next.js, React, and strict TypeScript. Built for complex user journeys and sub-second interactions.',
     deliverables: [
       'Full-stack Next.js / React application',
@@ -23,7 +23,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     id: 'saas-products',
     number: '02',
     categoryTag: 'ORDER 002 / CLOUD PLATFORMS',
-    title: 'SAAS PRODUCTS',
+    title: 'SaaS Products',
     summary: 'Multi-tenant subscription software with reliable data isolation, billing integrations, role-based access control, and intuitive workspace administration.',
     deliverables: [
       'Multi-tenant database schema & tenancy routing',
@@ -41,7 +41,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     id: 'ecommerce',
     number: '03',
     categoryTag: 'ORDER 003 / DIGITAL COMMERCE',
-    title: 'E-COMMERCE',
+    title: 'E-Commerce Platforms',
     summary: 'Custom headless storefronts engineered for fast checkout conversion, international multi-currency catalogs, and resilient inventory sync.',
     deliverables: [
       'Headless commerce architecture with zero-lag product filtering',
@@ -59,7 +59,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     id: 'mobile-experiences',
     number: '04',
     categoryTag: 'ORDER 004 / CROSS-PLATFORM',
-    title: 'MOBILE EXPERIENCES',
+    title: 'Mobile Experiences',
     summary: 'Fluid cross-platform mobile apps and responsive progressive web applications delivering 60fps gesture interactions and offline synchronization.',
     deliverables: [
       'Native-feel touch interactions & haptic feedback loops',
@@ -77,7 +77,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     id: 'api-backend',
     number: '05',
     categoryTag: 'ORDER 005 / DISTRIBUTED SYSTEMS',
-    title: 'API / BACKEND',
+    title: 'API & Cloud Backend',
     summary: 'Resilient microservices, REST & GraphQL endpoints, and distributed queue architectures designed for high concurrency and auditability.',
     deliverables: [
       'Contract-first OpenAPI & tRPC API schemas',
@@ -95,7 +95,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     id: 'ai-products',
     number: '06',
     categoryTag: 'ORDER 006 / MACHINE INTELLIGENCE',
-    title: 'AI PRODUCTS',
+    title: 'AI & Machine Intelligence',
     summary: 'Production-grade LLM interfaces, retrieval-augmented generation (RAG) pipelines, and autonomous agent orchestration with strict evaluation rails.',
     deliverables: [
       'Streaming token interfaces with markdown & code syntax renderers',

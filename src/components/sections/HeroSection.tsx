@@ -61,9 +61,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
         >
           {/* Eyebrow / Classification with Hexaloom Tagline */}
           <div className="flex items-center gap-3 mb-4">
-            <div className="font-mono text-xs sm:text-sm tracking-widest text-[#B56A3A] flex items-center gap-2">
+            <div className="font-mono text-xs sm:text-sm tracking-wide text-[#B56A3A] flex items-center gap-2">
               <Terminal className="w-4 h-4 text-[#38BDF8]" />
-              <span>HEXALOOM STUDIO // CODE. DESIGN. INNOVATE.</span>
+              <span>Hexaloom Studio // Code. Design. Innovate.</span>
             </div>
           </div>
 

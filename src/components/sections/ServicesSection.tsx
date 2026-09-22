@@ -77,15 +77,15 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
                       {service.specs.latency}
                     </span>
 
-                    {/* Quick direct CTA always accessible in collapsed state */}
+                    {/* Prominent, consistent conversion CTA */}
                     <button
                       type="button"
                       onClick={() => onSelectService(service.title)}
-                      className="btn-secondary py-1.5 px-3 text-xs"
-                      title={`Commission or inquire about ${service.title}`}
+                      className="btn-primary py-2 px-4 text-xs"
+                      title={`Inquire about commissioning ${service.title}`}
                     >
-                      <span>Inquire</span>
-                      <ArrowUpRight className="w-3.5 h-3.5 text-[#B56A3A]" />
+                      <span>Inquire Now</span>
+                      <ArrowUpRight className="w-3.5 h-3.5" />
                     </button>
 
                     {/* Expand/Collapse toggle button */}
@@ -93,7 +93,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
                       type="button"
                       onClick={() => toggleExpand(service.id)}
                       aria-label={isExpanded ? `Collapse ${service.title}` : `Expand details for ${service.title}`}
-                      className={`w-8 h-8 rounded-full border border-[#CFC5B8] flex items-center justify-center transition-transform duration-200 ${
+                      className={`btn-icon w-8 h-8 rounded-full border border-[#CFC5B8] flex items-center justify-center transition-transform duration-200 ${
                         isExpanded ? 'rotate-180 bg-[#24211D] text-[#FFFDF9]' : 'text-[#24211D] hover:border-[#24211D]'
                       }`}
                     >
@@ -161,10 +161,12 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
                         </span>
 
                         <button
+                          type="button"
                           onClick={() => onSelectService(service.title)}
-                          className="btn-primary"
+                          className="btn-primary py-2 px-4 text-xs"
+                          title={`Inquire about commissioning ${service.title}`}
                         >
-                          <span>Commission {service.title.split(' ')[0]}</span>
+                          <span>Inquire Now</span>
                           <ArrowUpRight className="w-4 h-4" />
                         </button>
                       </div>

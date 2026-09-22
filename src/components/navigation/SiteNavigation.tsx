@@ -98,31 +98,19 @@ export const SiteNavigation: React.FC<SiteNavigationProps> = ({
                 </button>
               );
             })}
-
-            <button
-              id="nav-index-drawer-toggle"
-              onClick={() => setIndexDrawerOpen(true)}
-              className="px-2.5 py-1 text-[#81776C] hover:text-[#24211D] border border-[#CFC5B8] text-xs flex items-center gap-1.5 transition-colors"
-            >
-              <Sliders className="w-3 h-3 text-[#B56A3A]" />
-              <span>INDEX</span>
-            </button>
           </nav>
 
-          {/* Right Action Cluster */}
+          {/* Right Action Cluster: Single Consolidated Index Trigger */}
           <div className="flex items-center gap-3">
-            {/* Mobile / Tablet Hamburger Menu Button -> Opens Index Page / Drawer */}
             <button
-              id="mobile-nav-hamburger"
-              onClick={() => {
-                setIndexDrawerOpen(!indexDrawerOpen);
-                setMobileMenuOpen(false);
-              }}
-              className="lg:hidden btn-icon"
-              aria-label={indexDrawerOpen ? 'Close index menu' : 'Open index menu'}
+              id="nav-index-drawer-toggle"
+              onClick={() => setIndexDrawerOpen(!indexDrawerOpen)}
+              className="btn-tab text-xs flex items-center gap-2 font-mono py-1.5 px-3"
+              aria-label={indexDrawerOpen ? 'Close index roadmap' : 'Open index roadmap'}
               aria-expanded={indexDrawerOpen}
             >
-              {indexDrawerOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+              <Sliders className="w-3.5 h-3.5 text-[#B56A3A]" />
+              <span>INDEX</span>
             </button>
           </div>
         </div>

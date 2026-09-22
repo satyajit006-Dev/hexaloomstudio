@@ -57,8 +57,8 @@ export const TechStackSection: React.FC = () => {
           </div>
         </div>
 
-        {/* The Technical Wall Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+        {/* The Technical Wall Layout with unified visual proximity */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
           {/* Tech Grid (Columns 1-7) */}
           <div className="lg:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-3">
             {filteredTech.map((tech) => {
@@ -69,11 +69,12 @@ export const TechStackSection: React.FC = () => {
                   id={`tech-node-${tech.name.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}
                   onClick={() => setSelectedTech(tech)}
                   onMouseEnter={() => setSelectedTech(tech)}
-                  className={`p-4 border text-left transition-all relative group focus:outline-none ${
+                  className={`p-4 border text-left transition-all relative group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#B56A3A] ${
                     isSelected
-                      ? 'border-[#B56A3A] bg-[#24211D] text-[#FFFDF9] shadow-xs'
+                      ? 'border-[#B56A3A] bg-[#24211D] text-[#FFFDF9] shadow-sm z-10'
                       : 'border-[#CFC5B8] bg-[#FFFDF9] text-[#24211D] hover:border-[#24211D]'
                   }`}
+                  aria-pressed={isSelected}
                 >
                   {/* Status Indicator Tag */}
                   <div className="flex items-center justify-between font-mono text-xs mb-3">
@@ -86,7 +87,7 @@ export const TechStackSection: React.FC = () => {
                     </span>
                     <span
                       className={`w-1.5 h-1.5 rounded-full ${
-                        isSelected ? 'bg-[#B56A3A]' : 'bg-[#CFC5B8]'
+                        isSelected ? 'bg-[#B56A3A] ring-2 ring-[#B56A3A]/40' : 'bg-[#CFC5B8]'
                       }`}
                     />
                   </div>
@@ -107,13 +108,14 @@ export const TechStackSection: React.FC = () => {
             })}
           </div>
 
-          {/* Active Inspector Terminal Panel (Columns 8-12) */}
-          <div className="lg:col-span-5">
-            <div className="border border-[#24211D] bg-[#24211D] text-[#FFFDF9] p-6 sm:p-8 flex flex-col justify-between h-full relative font-mono">
+          {/* Active Inspector Terminal Panel (Columns 8-12) - Sticky with tight proximity */}
+          <div className="lg:col-span-5 lg:sticky lg:top-24">
+            <div className="border border-[#24211D] bg-[#24211D] text-[#FFFDF9] p-6 sm:p-7 flex flex-col justify-between shadow-md relative font-mono">
               <div className="space-y-6">
                 <div className="flex items-center justify-between border-b border-[#81776C]/40 pb-4 text-xs">
-                  <span className="text-[#B56A3A] font-semibold">
-                    INSPECTOR // {selectedTech.name}
+                  <span className="text-[#B56A3A] font-semibold flex items-center gap-1.5">
+                    <span className="w-2 h-2 rounded-full bg-[#B56A3A] animate-pulse" />
+                    <span>INSPECTOR // {selectedTech.name}</span>
                   </span>
                   <span className="text-[#CFC5B8] uppercase text-xs">
                     STATUS: {selectedTech.status}

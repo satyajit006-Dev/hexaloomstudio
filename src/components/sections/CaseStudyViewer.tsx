@@ -33,31 +33,36 @@ export const CaseStudyViewer: React.FC = () => {
           </div>
         </div>
 
-        {/* Level 1: Project Selection Shelf (Hierarchical Grouping) */}
-        <div className="mb-8 p-4 bg-[#FFFDF9] border border-[#CFC5B8] flex flex-col md:flex-row md:items-center justify-between gap-4">
+        {/* Level 1: Project Selection Shelf - Clear Select Control to eliminate double-tab confusion */}
+        <div className="mb-6 p-4 bg-[#FFFDF9] border border-[#CFC5B8] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div className="flex items-center gap-2 text-xs font-mono text-[#81776C]">
             <Layers className="w-4 h-4 text-[#B56A3A]" />
-            <span className="font-semibold text-[#24211D]">SELECT PROJECT:</span>
-            <span className="text-xs text-[#81776C] hidden sm:inline">Choose an engagement to inspect</span>
+            <label htmlFor="case-study-project-select" className="font-semibold text-[#24211D]">
+              PROJECT DOSSIER:
+            </label>
+            <span className="text-xs text-[#81776C] hidden sm:inline">Select engagement to inspect pipeline</span>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
-            {PROJECTS_DATA.map((proj) => (
-              <button
-                key={proj.id}
-                id={`case-study-proj-btn-${proj.id}`}
-                onClick={() => {
+          <div className="flex items-center gap-2">
+            <select
+              id="case-study-project-select"
+              aria-label="Select engagement project dossier"
+              value={activeProject.id}
+              onChange={(e) => {
+                const proj = PROJECTS_DATA.find((p) => p.id === e.target.value);
+                if (proj) {
                   setActiveProject(proj);
                   setActiveStageIndex(0);
-                }}
-                className={`btn-tab ${
-                  activeProject.id === proj.id ? 'active font-semibold' : ''
-                }`}
-              >
-                <span className="text-[#B56A3A] font-bold">{proj.number}</span>
-                <span className="truncate">{proj.title.split(' ')[0]}</span>
-              </button>
-            ))}
+                }
+              }}
+              className="w-full sm:w-auto bg-[#F5F0E8] border border-[#CFC5B8] text-[#24211D] font-mono text-xs px-3 py-2 font-medium focus:outline-none focus:border-[#B56A3A] cursor-pointer"
+            >
+              {PROJECTS_DATA.map((proj) => (
+                <option key={proj.id} value={proj.id} id={`case-study-proj-btn-${proj.id}`}>
+                  #{proj.number} // {proj.title} — {proj.client}
+                </option>
+              ))}
+            </select>
           </div>
         </div>
 

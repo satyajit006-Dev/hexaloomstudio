@@ -21,10 +21,10 @@ export const CtaSection: React.FC<CtaSectionProps> = ({ onStartProject }) => {
               <span>COMMISSION CONTRACTS</span>
             </div>
 
-            <h2 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold font-sans tracking-tight text-[#FFFDF9] uppercase leading-[0.98]">
-              LET&apos;S BUILD <br />
-              SOMETHING <br />
-              <span className="text-[#B56A3A] font-serif italic">USEFUL.</span>
+            <h2 className="text-4xl sm:text-6xl md:text-7xl font-bold font-sans tracking-tight text-[#FFFDF9] leading-[1.02]">
+              Let&apos;s build <br />
+              something <br />
+              <span className="text-[#B56A3A] font-serif italic font-normal">useful.</span>
             </h2>
           </div>
 

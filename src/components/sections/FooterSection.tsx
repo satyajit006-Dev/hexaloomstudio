@@ -77,14 +77,14 @@ export const FooterSection: React.FC<FooterSectionProps> = ({
                     <span>{dev.name}</span>
                     <span className="text-xs text-[#B56A3A]">{dev.initials}</span>
                   </div>
-                  <div className="text-xs text-[#81776C]">{dev.role}</div>
                   <a
                     href={dev.portfolioUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-xs text-[#38BDF8] hover:text-[#67E8F9] flex items-center gap-1 pt-1 font-mono"
+                    className="text-[11px] text-[#38BDF8] hover:text-[#67E8F9] flex items-center gap-1 pt-1 font-mono"
+                    style={{ fontSize: '11px' }}
                   >
-                    <span>{dev.domain}</span>
+                    <span style={{ fontSize: '10px' }} className="text-[10px]">{dev.domain}</span>
                     <ArrowUpRight className="w-3 h-3" />
                   </a>
                 </div>
