@@ -1,37 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { SITE_CONFIG } from '../../data/siteConfig';
-import { ArrowUp, ArrowUpRight, Shield, FileText, Sparkles, Instagram, Mail, Phone, Inbox } from 'lucide-react';
+import { ArrowUp, ArrowUpRight, Shield, FileText, Sparkles, Instagram, Mail, Phone } from 'lucide-react';
 import { HexaloomLogo } from '../brand/HexaloomLogo';
-import { leadService } from '../../services/leadService';
 
 interface FooterSectionProps {
   onJumpToScene: (id: string) => void;
   onOpenPrivacy: () => void;
   onOpenTerms: () => void;
-  onOpenOwnerInbox?: () => void;
 }
 
 export const FooterSection: React.FC<FooterSectionProps> = ({
   onJumpToScene,
   onOpenPrivacy,
-  onOpenTerms,
-  onOpenOwnerInbox
+  onOpenTerms
 }) => {
-  const [inquiryCount, setInquiryCount] = useState(0);
-
-  useEffect(() => {
-    const updateCount = () => {
-      setInquiryCount(leadService.getInquiries().length);
-    };
-    updateCount();
-    window.addEventListener('hexaloom_new_inquiry', updateCount);
-    window.addEventListener('hexaloom_inquiry_updated', updateCount);
-    return () => {
-      window.removeEventListener('hexaloom_new_inquiry', updateCount);
-      window.removeEventListener('hexaloom_inquiry_updated', updateCount);
-    };
-  }, []);
-
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -198,18 +180,7 @@ export const FooterSection: React.FC<FooterSectionProps> = ({
             &copy; 2026 {SITE_CONFIG.name}. ALL RIGHTS RESERVED. CODE. DESIGN. INNOVATE.
           </div>
 
-          <div className="flex flex-wrap items-center gap-4 sm:gap-6">
-            {onOpenOwnerInbox && (
-              <button
-                onClick={onOpenOwnerInbox}
-                className="text-[#B56A3A] hover:text-[#FFFDF9] transition-colors flex items-center gap-1.5 focus:outline-none font-bold"
-                title="Open Studio Owner Inquiries & Leads Dashboard"
-              >
-                <Inbox className="w-3.5 h-3.5" />
-                <span>Owner Leads ({inquiryCount})</span>
-              </button>
-            )}
-
+          <div className="flex items-center gap-6">
             <button
               onClick={onOpenPrivacy}
               className="hover:text-[#FFFDF9] transition-colors flex items-center gap-1 focus:outline-none"

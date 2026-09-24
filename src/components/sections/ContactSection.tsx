@@ -13,7 +13,6 @@ import {
   ExternalLink,
   Navigation,
   Instagram,
-  Inbox,
   ArrowUpRight,
   Sparkles,
   Smartphone
@@ -21,12 +20,10 @@ import {
 
 interface ContactSectionProps {
   preselectedService?: string;
-  onOpenOwnerInbox?: () => void;
 }
 
 export const ContactSection: React.FC<ContactSectionProps> = ({
-  preselectedService,
-  onOpenOwnerInbox
+  preselectedService
 }) => {
   const [formData, setFormData] = useState<ContactFormData>({
     name: '',
@@ -328,7 +325,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                       <span className="text-[10px] text-[#527A5A] font-bold">LIVE DESK</span>
                     </div>
                     <p className="text-[11px] text-[#81776C]">
-                      Want instant confirmation? Send a preformatted copy of your scope straight to the engineering desk via WhatsApp or Email:
+                      Want instant confirmation? Send a preformatted copy of your scope straight to the engineering desk via WhatsApp:
                     </p>
                     <div className="flex flex-wrap gap-2.5 pt-1">
                       <a
@@ -341,25 +338,6 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                         <span>Send via WhatsApp (+91 96920 07455)</span>
                         <ArrowUpRight className="w-3.5 h-3.5" />
                       </a>
-
-                      <a
-                        href={lastLoggedLead ? leadService.formatMailtoUrl(lastLoggedLead) : leadService.formatMailtoUrl(formData)}
-                        className="btn-secondary py-2 px-3 text-xs flex items-center gap-2"
-                      >
-                        <Mail className="w-3.5 h-3.5 text-[#B56A3A]" />
-                        <span>Open Mail Client</span>
-                      </a>
-
-                      {onOpenOwnerInbox && (
-                        <button
-                          type="button"
-                          onClick={onOpenOwnerInbox}
-                          className="btn-tab py-2 px-3 text-xs flex items-center gap-2 border-[#24211D] text-[#24211D]"
-                        >
-                          <Inbox className="w-3.5 h-3.5 text-[#B56A3A]" />
-                          <span>View in Owner Inbox</span>
-                        </button>
-                      )}
                     </div>
                   </div>
 
