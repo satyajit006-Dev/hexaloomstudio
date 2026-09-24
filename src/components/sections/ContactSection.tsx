@@ -6,12 +6,10 @@ import {
   MessageSquare,
   Phone,
   Mail,
-  MapPin,
   Send,
   CheckCircle2,
   AlertCircle,
   ExternalLink,
-  Navigation,
   Instagram,
   ArrowUpRight,
   Sparkles,
@@ -243,50 +241,6 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                 </div>
                 <ExternalLink className="w-4 h-4 text-[#81776C]" />
               </a>
-            </div>
-
-            {/* Studio Physical Location & Maps Integration (TRD #33, #34, #35) */}
-            <div className="p-6 border border-[#24211D] bg-[#FFFDF9] space-y-4">
-              <div className="flex items-start gap-3">
-                <MapPin className="w-5 h-5 text-[#B56A3A] mt-0.5 shrink-0" />
-                <div>
-                  <div className="font-mono text-xs font-bold text-[#24211D] uppercase">
-                    Studio Location & Local Office
-                  </div>
-                  <div className="text-xs text-[#81776C] mt-1 font-mono">
-                    {SITE_CONFIG.address.street} <br />
-                    {SITE_CONFIG.address.city}, {SITE_CONFIG.address.state} &mdash;{' '}
-                    {SITE_CONFIG.address.postalCode}, {SITE_CONFIG.address.country}
-                  </div>
-                  <div className="text-[10px] text-[#B56A3A] font-mono mt-1">
-                    LAT {SITE_CONFIG.address.coordinates.lat} // LNG {SITE_CONFIG.address.coordinates.lng}
-                  </div>
-                </div>
-              </div>
-
-              <div className="pt-2 flex flex-wrap items-center gap-2.5 font-mono text-xs">
-                <a
-                  id="google-maps-btn"
-                  href={SITE_CONFIG.contact.googleMapsUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-primary"
-                >
-                  <Navigation className="w-3.5 h-3.5" />
-                  <span>Google Maps</span>
-                </a>
-
-                <a
-                  id="apple-maps-btn"
-                  href={SITE_CONFIG.contact.appleMapsUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-secondary"
-                >
-                  <Navigation className="w-3.5 h-3.5" />
-                  <span>Apple Maps</span>
-                </a>
-              </div>
             </div>
           </div>
 
