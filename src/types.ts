@@ -83,11 +83,19 @@ export interface TestimonialItem {
 export interface ContactFormData {
   name: string;
   email: string;
+  phone?: string;
   company: string;
   projectType: string;
   budget: string;
   timeline: string;
   message: string;
+}
+
+export interface ClientInquiry extends ContactFormData {
+  id: string;
+  createdAt: string;
+  status: 'new' | 'reviewed' | 'contacted' | 'archived';
+  source?: string;
 }
 
 export interface SeniorDeveloper {

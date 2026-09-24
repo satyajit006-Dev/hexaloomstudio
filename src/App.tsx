@@ -21,6 +21,7 @@ import { FooterSection } from './components/sections/FooterSection';
 import { ProjectDetailModal } from './components/modals/ProjectDetailModal';
 import { LegalModal } from './components/modals/LegalModal';
 import { CookieConsent } from './components/modals/CookieConsent';
+import { OwnerInboxModal } from './components/modals/OwnerInboxModal';
 import { ProjectItem } from './types';
 import { SITE_CONFIG } from './data/siteConfig';
 
@@ -30,6 +31,7 @@ export default function App() {
   const [selectedProjectForModal, setSelectedProjectForModal] = useState<ProjectItem | null>(null);
   const [legalModalType, setLegalModalType] = useState<'privacy' | 'terms' | null>(null);
   const [preselectedServiceForContact, setPreselectedServiceForContact] = useState<string>('');
+  const [isOwnerInboxOpen, setIsOwnerInboxOpen] = useState(false);
 
   // Reduced motion support
   const [reducedMotion, setReducedMotion] = useState(() => {
@@ -103,6 +105,7 @@ export default function App() {
         onJumpToScene={handleJumpToScene}
         reducedMotion={reducedMotion}
         onToggleReducedMotion={() => setReducedMotion(!reducedMotion)}
+        onOpenOwnerInbox={() => setIsOwnerInboxOpen(true)}
       />
 
       {/* Top Track & Right Side Floating Scene Index */}
@@ -152,7 +155,10 @@ export default function App() {
         <CtaSection onStartProject={() => handleJumpToScene('contact')} />
 
         {/* Scene 11 — Comprehensive Contact & Ticket Specification */}
-        <ContactSection preselectedService={preselectedServiceForContact} />
+        <ContactSection
+          preselectedService={preselectedServiceForContact}
+          onOpenOwnerInbox={() => setIsOwnerInboxOpen(true)}
+        />
       </main>
 
       {/* Scene 12 — Studio Footer */}
@@ -160,6 +166,7 @@ export default function App() {
         onJumpToScene={handleJumpToScene}
         onOpenPrivacy={() => setLegalModalType('privacy')}
         onOpenTerms={() => setLegalModalType('terms')}
+        onOpenOwnerInbox={() => setIsOwnerInboxOpen(true)}
       />
 
       {/* Project Case Study Deep Dive Modal */}
@@ -173,6 +180,12 @@ export default function App() {
       <LegalModal
         type={legalModalType}
         onClose={() => setLegalModalType(null)}
+      />
+
+      {/* Owner Leads & Commission Inquiries Inbox */}
+      <OwnerInboxModal
+        isOpen={isOwnerInboxOpen}
+        onClose={() => setIsOwnerInboxOpen(false)}
       />
 
       {/* Cookie & Telemetry Consent System */}

@@ -8,13 +8,15 @@ interface SiteNavigationProps {
   onJumpToScene: (id: string) => void;
   reducedMotion: boolean;
   onToggleReducedMotion: () => void;
+  onOpenOwnerInbox?: () => void;
 }
 
 export const SiteNavigation: React.FC<SiteNavigationProps> = ({
   currentScene,
   onJumpToScene,
   reducedMotion,
-  onToggleReducedMotion
+  onToggleReducedMotion,
+  onOpenOwnerInbox
 }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -226,7 +228,23 @@ export const SiteNavigation: React.FC<SiteNavigationProps> = ({
               </div>
             </div>
 
-            <div className="pt-8 border-t border-[#CFC5B8] mt-8 text-xs font-mono text-[#81776C] space-y-1">
+            <div className="pt-8 border-t border-[#CFC5B8] mt-8 text-xs font-mono text-[#81776C] space-y-3">
+              {onOpenOwnerInbox && (
+                <button
+                  onClick={() => {
+                    setIndexDrawerOpen(false);
+                    onOpenOwnerInbox();
+                  }}
+                  className="w-full py-2.5 px-3 bg-[#24211D] text-[#FFFDF9] hover:bg-[#B56A3A] transition-colors flex items-center justify-between text-xs font-bold"
+                >
+                  <span className="flex items-center gap-2">
+                    <Sliders className="w-3.5 h-3.5 text-[#B56A3A]" />
+                    <span>OWNER LEADS PORTAL</span>
+                  </span>
+                  <span className="text-[10px] bg-[#B56A3A] px-1.5 py-0.5 text-white">ACCESS</span>
+                </button>
+              )}
+
               <div className="text-[#24211D] font-bold">HEXALOOM STUDIO &copy; 2026</div>
               <div>OFFICE: INFOCITY, BHUBANESWAR</div>
             </div>
