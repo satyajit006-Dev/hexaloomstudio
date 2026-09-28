@@ -33,7 +33,7 @@ export const SITE_CONFIG = {
   seniorDevelopers: [
     {
       name: 'Ritesh Pati',
-      role: 'Senior Developer & Full-Stack Architect',
+      role: 'Developer & Full-Stack Architect',
       portfolioUrl: 'https://riteshpati.indevs.in/',
       domain: 'riteshpati.indevs.in',
       bio: 'Architecting resilient cloud infrastructure, distributed microservices, scalable databases, and full-stack enterprise applications.',
@@ -43,7 +43,7 @@ export const SITE_CONFIG = {
     },
     {
       name: 'Satyajit Nayak',
-      role: 'Senior Developer & Frontend Systems Architect',
+      role: 'Developer & Frontend Systems Architect',
       portfolioUrl: 'https://satyajitportfolio-amber.vercel.app/',
       domain: 'satyajitportfolio-amber.vercel.app',
       bio: 'Crafting responsive design systems, headless frontend architectures, interaction design, and sub-second web performance.',

@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { SiteNavigation } from './components/navigation/SiteNavigation';
-import { ScrollProgress } from './components/navigation/ScrollProgress';
 import { CustomCursor } from './components/cursor/CustomCursor';
 import { Preloader } from './components/preloader/Preloader';
 
@@ -103,12 +102,6 @@ export default function App() {
         onJumpToScene={handleJumpToScene}
         reducedMotion={reducedMotion}
         onToggleReducedMotion={() => setReducedMotion(!reducedMotion)}
-      />
-
-      {/* Top Track & Right Side Floating Scene Index */}
-      <ScrollProgress
-        currentScene={currentScene}
-        onJumpToScene={handleJumpToScene}
       />
 
       {/* Main Sequential Interactive Story Canvas */}
