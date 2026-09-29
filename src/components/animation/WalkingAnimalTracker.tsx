@@ -22,8 +22,8 @@ const ANIMALS: AnimalConfig[] = [
   {
     id: 'video-cat',
     name: 'Video Pole-Climber Cat',
-    emoji: '🐈‍⬛',
-    soundText: 'Climbing vertical rail (exact video motion!) 🐾',
+    emoji: '',
+    soundText: 'Climbing vertical rail (exact video motion!)',
     tag: 'VIDEO REFERENCE',
     backColor: '#171E29',
     bellyColor: '#8CA1B6',
@@ -37,7 +37,7 @@ const ANIMALS: AnimalConfig[] = [
   {
     id: 'midnight-cat',
     name: 'Midnight Black Cat',
-    emoji: '🐱',
+    emoji: '',
     soundText: 'Purr... Silently scaling the studio rail',
     tag: 'FELIS CATUS',
     backColor: '#0E1117',
@@ -52,7 +52,7 @@ const ANIMALS: AnimalConfig[] = [
   {
     id: 'panther',
     name: 'Shadow Panther Climber',
-    emoji: '🐆',
+    emoji: '',
     soundText: 'Predatory vertical ascent...',
     tag: 'PANTHERA PARDUS',
     backColor: '#181615',
@@ -67,7 +67,7 @@ const ANIMALS: AnimalConfig[] = [
   {
     id: 'calico',
     name: 'Calico Border Climber',
-    emoji: '🐾',
+    emoji: '',
     soundText: 'Tricolor paws stepping in rhythm...',
     tag: 'FELIS VARIEGATA',
     backColor: '#C26508',
@@ -82,7 +82,7 @@ const ANIMALS: AnimalConfig[] = [
   {
     id: 'white-cat',
     name: 'Snow White Climber',
-    emoji: '🤍',
+    emoji: '',
     soundText: 'Soft white paws stepping along rail...',
     tag: 'FELIS ALBINO',
     backColor: '#F8FAFC',

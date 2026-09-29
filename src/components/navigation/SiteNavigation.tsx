@@ -130,7 +130,7 @@ export const SiteNavigation: React.FC<SiteNavigationProps> = ({
                     key={item.id}
                     id={`mobile-nav-item-${item.id}`}
                     onClick={() => handleNavClick(item.id)}
-                    className={`flex items-center justify-between py-2.5 px-2 border-b border-[#CFC5B8]/40 text-left transition-colors rounded-xs ${
+                    className={`flex items-center justify-between py-2.5 px-3 border-b border-[#CFC5B8]/40 text-left transition-colors rounded-xl ${
                       isActive
                         ? 'bg-[#B56A3A]/10 text-[#B56A3A] font-semibold border-b-[#B56A3A]'
                         : 'text-[#24211D] hover:bg-[#FFFDF9]'
@@ -205,7 +205,7 @@ export const SiteNavigation: React.FC<SiteNavigationProps> = ({
                       key={item.id}
                       id={`spatial-jump-${item.id}`}
                       onClick={() => handleNavClick(item.id)}
-                      className={`w-full flex items-center justify-between p-3 border transition-colors text-left font-mono text-xs ${
+                      className={`w-full flex items-center justify-between p-3 border transition-colors text-left font-mono text-xs rounded-xl ${
                         isCurrent
                           ? 'border-[#B56A3A] bg-[#B56A3A]/10 text-[#24211D]'
                           : 'border-[#CFC5B8]/60 hover:border-[#24211D] bg-[#FFFDF9]'

@@ -69,7 +69,8 @@ code, pre, .font-mono {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  padding: 0.625rem 1.25rem;
+  padding: 0.625rem 1.5rem;
+  border-radius: 100px;
   background-color: #24211D;
   color: #FFFDF9;
   border: 1px solid #24211D;
@@ -92,7 +93,8 @@ code, pre, .font-mono {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  padding: 0.625rem 1.25rem;
+  padding: 0.625rem 1.5rem;
+  border-radius: 100px;
   background-color: #FFFDF9;
   color: #24211D;
   border: 1px solid #CFC5B8;
@@ -114,7 +116,8 @@ code, pre, .font-mono {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  padding: 0.625rem 1.25rem;
+  padding: 0.625rem 1.5rem;
+  border-radius: 100px;
   background-color: #B56A3A;
   color: #FFFDF9;
   border: 1px solid #B56A3A;
@@ -137,7 +140,8 @@ code, pre, .font-mono {
   align-items: center;
   justify-content: center;
   gap: 0.375rem;
-  padding: 0.375rem 0.875rem;
+  padding: 0.375rem 1rem;
+  border-radius: 100px;
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.75rem; /* 12px min */
   border: 1px solid #CFC5B8;
@@ -162,6 +166,7 @@ code, pre, .font-mono {
   justify-content: center;
   width: 2.5rem;
   height: 2.5rem;
+  border-radius: 100px;
   border: 1px solid #CFC5B8;
   background-color: #FFFDF9;
   color: #24211D;
@@ -171,5 +176,24 @@ code, pre, .font-mono {
 .btn-icon:hover {
   border-color: #24211D;
   color: #24211D;
+}
+
+/* Circular styling for all boxes, inputs, textareas, and card elements */
+input:not([type="checkbox"]):not([type="radio"]),
+select,
+textarea {
+  border-radius: 16px;
+}
+
+article {
+  border-radius: 28px;
+}
+
+/* Explicit Hero CTA hover styling with #B56A3A */
+#hero-cta-start:hover,
+#hero-cta-explore-work:hover {
+  background-color: #B56A3A !important;
+  border-color: #B56A3A !important;
+  color: #FFFDF9 !important;
 }
 

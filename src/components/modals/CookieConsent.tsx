@@ -48,7 +48,7 @@ export const CookieConsent: React.FC = () => {
       id="cookie-consent-banner"
       role="region"
       aria-label="Cookie consent banner"
-      className="fixed bottom-4 left-4 right-4 sm:left-6 sm:right-auto sm:max-w-lg z-50 bg-[#FFFDF9] border border-[#24211D] p-6 shadow-xl font-mono text-xs animate-in slide-in-from-bottom-3 duration-300"
+      className="fixed bottom-4 left-4 right-4 sm:left-6 sm:right-auto sm:max-w-lg z-50 bg-[#FFFDF9] border border-[#24211D] p-6 shadow-xl font-mono text-xs animate-in slide-in-from-bottom-3 duration-300 rounded-[28px]"
     >
       <div className="flex items-start gap-3 mb-4">
         <Shield className="w-5 h-5 text-[#B56A3A] shrink-0 mt-0.5" />

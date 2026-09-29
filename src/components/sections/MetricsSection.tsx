@@ -81,7 +81,7 @@ export const MetricsSection: React.FC<MetricsSectionProps> = ({ reducedMotion })
           <div>
             <div className="font-mono text-xs text-[#B56A3A] tracking-wider mb-2 flex items-center gap-2">
               <span>SCENE 09</span>
-              <span>//</span>
+              <span>&bull;</span>
               <span>QUANTIFIABLE RECORD</span>
             </div>
             <h2 className="text-3xl sm:text-5xl font-bold font-sans text-[#24211D] tracking-tight">
@@ -101,7 +101,7 @@ export const MetricsSection: React.FC<MetricsSectionProps> = ({ reducedMotion })
               <div
                 key={metric.id}
                 id={`metric-box-${metric.id}`}
-                className="p-8 border border-[#24211D] bg-[#FFFDF9] flex flex-col justify-between shadow-xs hover:border-[#B56A3A] transition-colors"
+                className="p-8 border border-[#24211D] bg-[#FFFDF9] flex flex-col justify-between shadow-xs hover:border-[#B56A3A] transition-colors rounded-[28px]"
               >
                 <div>
                   <div className="font-mono text-5xl sm:text-6xl font-bold text-[#24211D] tracking-tighter mb-2">

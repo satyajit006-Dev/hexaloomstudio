@@ -27,7 +27,7 @@ export const TestimonialsSection: React.FC = () => {
           <div>
             <div className="font-mono text-xs text-[#B56A3A] tracking-wider mb-2 flex items-center gap-2">
               <span>SCENE 10</span>
-              <span>//</span>
+              <span>&bull;</span>
               <span>VERIFIED TRUST</span>
             </div>
             <h2 className="text-3xl sm:text-5xl font-bold font-sans text-[#24211D] tracking-tight">
@@ -40,7 +40,7 @@ export const TestimonialsSection: React.FC = () => {
         </div>
 
         {/* Editorial Quote Box */}
-        <div className="border border-[#24211D] bg-[#FFFDF9] p-8 sm:p-16 relative shadow-xs">
+        <div className="border border-[#24211D] bg-[#FFFDF9] p-8 sm:p-16 relative shadow-xs rounded-[32px]">
           <Quote className="w-12 h-12 text-[#B56A3A]/20 absolute top-8 right-8 sm:top-12 sm:right-12" />
 
           <div className="max-w-4xl space-y-8">
@@ -57,7 +57,7 @@ export const TestimonialsSection: React.FC = () => {
                   {current.role} &mdash; <span className="text-[#24211D] font-semibold">{current.company}</span>
                 </div>
                 {/* High contrast verified engagement proof badge */}
-                <div className="mt-2 inline-flex items-center gap-1.5 px-2.5 py-1 bg-[#24211D] text-[#FFFDF9] font-mono text-xs font-semibold rounded-xs">
+                <div className="mt-2 inline-flex items-center gap-1.5 px-3 py-1 bg-[#24211D] text-[#FFFDF9] font-mono text-xs font-semibold rounded-full">
                   <CheckCircle className="w-3.5 h-3.5 text-[#B56A3A]" />
                   <span>VERIFIED ENGAGEMENT: {current.project}</span>
                 </div>

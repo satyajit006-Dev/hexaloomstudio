@@ -24,7 +24,7 @@ export const TechStackSection: React.FC = () => {
             <div>
               <div className="font-mono text-xs text-[#B56A3A] tracking-wider mb-2 flex items-center gap-2">
                 <span>SCENE 05</span>
-                <span>//</span>
+                <span>&bull;</span>
                 <span>TECHNICAL ARCHITECTURE WALL</span>
               </div>
               <h2 className="text-3xl sm:text-5xl font-bold font-sans text-[#24211D] tracking-tight">
@@ -32,7 +32,7 @@ export const TechStackSection: React.FC = () => {
               </h2>
             </div>
             <div className="font-mono text-xs text-[#81776C]">
-              PRODUCTION-HARDENED STACK // ZERO FLUFF
+              PRODUCTION-HARDENED STACK &bull; ZERO FLUFF
             </div>
           </div>
 
@@ -69,7 +69,7 @@ export const TechStackSection: React.FC = () => {
                   id={`tech-node-${tech.name.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}
                   onClick={() => setSelectedTech(tech)}
                   onMouseEnter={() => setSelectedTech(tech)}
-                  className={`p-4 border text-left transition-all relative group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#B56A3A] ${
+                  className={`p-4 border text-left transition-all relative group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#B56A3A] rounded-2xl ${
                     isSelected
                       ? 'border-[#B56A3A] bg-[#24211D] text-[#FFFDF9] shadow-sm z-10'
                       : 'border-[#CFC5B8] bg-[#FFFDF9] text-[#24211D] hover:border-[#24211D]'
@@ -110,12 +110,12 @@ export const TechStackSection: React.FC = () => {
 
           {/* Active Inspector Terminal Panel (Columns 8-12) - Sticky with tight proximity */}
           <div className="lg:col-span-5 lg:sticky lg:top-24">
-            <div className="border border-[#24211D] bg-[#24211D] text-[#FFFDF9] p-6 sm:p-7 flex flex-col justify-between shadow-md relative font-mono">
+            <div className="border border-[#24211D] bg-[#24211D] text-[#FFFDF9] p-6 sm:p-7 flex flex-col justify-between shadow-md relative font-mono rounded-[28px] overflow-hidden">
               <div className="space-y-6">
                 <div className="flex items-center justify-between border-b border-[#81776C]/40 pb-4 text-xs">
                   <span className="text-[#B56A3A] font-semibold flex items-center gap-1.5">
                     <span className="w-2 h-2 rounded-full bg-[#B56A3A] animate-pulse" />
-                    <span>INSPECTOR // {selectedTech.name}</span>
+                    <span>INSPECTOR &bull; {selectedTech.name}</span>
                   </span>
                   <span className="text-[#CFC5B8] uppercase text-xs">
                     STATUS: {selectedTech.status}
@@ -129,8 +129,8 @@ export const TechStackSection: React.FC = () => {
                   </h3>
                 </div>
 
-                <div className="bg-[#1C1A17] p-4 border border-[#81776C]/30 text-xs text-[#CFC5B8] leading-relaxed">
-                  <span className="text-[#B56A3A] block font-semibold mb-1">// ARCHITECTURAL IMPACT:</span>
+                <div className="bg-[#1C1A17] p-4 border border-[#81776C]/30 text-xs text-[#CFC5B8] leading-relaxed rounded-2xl">
+                  <span className="text-[#B56A3A] block font-semibold mb-1">ARCHITECTURAL IMPACT:</span>
                   {selectedTech.highlight}
                 </div>
 

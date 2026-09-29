@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { PROJECTS_DATA } from '../../data/projects';
 import { ProjectItem, CaseStudyStage } from '../../types';
-import { CheckCircle2, ChevronRight, Terminal, Activity, Zap, Cpu, Sparkles, Layers } from 'lucide-react';
+import { CheckCircle2, ChevronRight, Terminal, Activity, Zap, Cpu, Layers } from 'lucide-react';
 
 export const CaseStudyViewer: React.FC = () => {
   const [activeProject, setActiveProject] = useState<ProjectItem>(PROJECTS_DATA[0]);
@@ -20,7 +20,7 @@ export const CaseStudyViewer: React.FC = () => {
         <div className="border-b border-[#CFC5B8] pb-6 mb-8">
           <div className="font-mono text-xs text-[#B56A3A] tracking-wider mb-2 flex items-center gap-2">
             <span>SCENE 07</span>
-            <span>//</span>
+            <span>&bull;</span>
             <span>CONTINUOUS CASE STUDY AUDIT</span>
           </div>
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
@@ -34,7 +34,7 @@ export const CaseStudyViewer: React.FC = () => {
         </div>
 
         {/* Level 1: Project Selection Shelf - Clear Select Control to eliminate double-tab confusion */}
-        <div className="mb-6 p-4 bg-[#FFFDF9] border border-[#CFC5B8] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div className="mb-6 p-4 sm:p-5 bg-[#FFFDF9] border border-[#CFC5B8] flex flex-col sm:flex-row sm:items-center justify-between gap-4 rounded-2xl shadow-xs">
           <div className="flex items-center gap-2 text-xs font-mono text-[#81776C]">
             <Layers className="w-4 h-4 text-[#B56A3A]" />
             <label htmlFor="case-study-project-select" className="font-semibold text-[#24211D]">
@@ -55,11 +55,11 @@ export const CaseStudyViewer: React.FC = () => {
                   setActiveStageIndex(0);
                 }
               }}
-              className="w-full sm:w-auto bg-[#F5F0E8] border border-[#CFC5B8] text-[#24211D] font-mono text-xs px-3 py-2 font-medium focus:outline-none focus:border-[#B56A3A] cursor-pointer"
+              className="w-full sm:w-auto bg-[#F5F0E8] border border-[#CFC5B8] text-[#24211D] font-mono text-xs px-4 py-2 font-medium focus:outline-none focus:border-[#B56A3A] cursor-pointer rounded-full"
             >
               {PROJECTS_DATA.map((proj) => (
                 <option key={proj.id} value={proj.id} id={`case-study-proj-btn-${proj.id}`}>
-                  #{proj.number} // {proj.title} — {proj.client}
+                  #{proj.number} &bull; {proj.title} — {proj.client}
                 </option>
               ))}
             </select>
@@ -84,7 +84,7 @@ export const CaseStudyViewer: React.FC = () => {
                 key={stage.step}
                 id={`case-stage-btn-${stage.step}`}
                 onClick={() => setActiveStageIndex(idx)}
-                className={`p-3 sm:p-4 border text-left transition-all ${
+                className={`p-3 sm:p-4 border text-left transition-all rounded-2xl ${
                   isActive
                     ? 'border-[#B56A3A] bg-[#24211D] text-[#FFFDF9] shadow-xs'
                     : isCompleted
@@ -111,13 +111,13 @@ export const CaseStudyViewer: React.FC = () => {
         </div>
 
         {/* 2-Column Split Case Study Viewer */}
-        <div className="border border-[#24211D] bg-[#FFFDF9] grid grid-cols-1 lg:grid-cols-12 min-h-[500px]">
+        <div className="border border-[#24211D] bg-[#FFFDF9] grid grid-cols-1 lg:grid-cols-12 min-h-[500px] rounded-[32px] overflow-hidden shadow-xs">
           {/* Left Column: Narrative Structured Content */}
           <div className="lg:col-span-6 p-8 sm:p-12 flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-[#CFC5B8]">
             <div className="space-y-6">
               <div className="flex items-center gap-2 font-mono text-xs text-[#B56A3A]">
                 <span>STAGE {currentStage.step} OF 05</span>
-                <span>//</span>
+                <span>&bull;</span>
                 <span className="uppercase text-[#24211D] font-bold">{currentStage.title}</span>
               </div>
 
@@ -175,13 +175,13 @@ export const CaseStudyViewer: React.FC = () => {
               <div className="flex items-center justify-between pb-4 border-b border-[#81776C]/40 text-xs">
                 <div className="flex items-center gap-2 text-[#B56A3A]">
                   <Terminal className="w-4 h-4" />
-                  <span>AUDIT_TELEMETRY // {activeProject.id.toUpperCase()}</span>
+                  <span>AUDIT_TELEMETRY &bull; {activeProject.id.toUpperCase()}</span>
                 </div>
                 <span className="text-[#527A5A]">● ACTIVE BENCHMARK</span>
               </div>
 
               {/* Big Metric Badge */}
-              <div className="p-6 bg-[#1C1A17] border border-[#81776C]/30 text-center space-y-1">
+              <div className="p-6 bg-[#1C1A17] border border-[#81776C]/30 text-center space-y-1 rounded-2xl">
                 <div className="text-4xl sm:text-5xl font-bold font-mono text-[#B56A3A] tracking-tight">
                   {currentStage.visualData.metricValue}
                 </div>
@@ -192,9 +192,9 @@ export const CaseStudyViewer: React.FC = () => {
 
               {/* Code / Command / Execution Snippet */}
               {currentStage.codeOrMetricSnippet && (
-                <div className="p-4 bg-[#141311] border border-[#81776C]/20 text-xs text-[#CFC5B8] leading-relaxed">
+                <div className="p-4 bg-[#141311] border border-[#81776C]/20 text-xs text-[#CFC5B8] leading-relaxed rounded-2xl">
                   <span className="text-[#81776C] block mb-1 text-xs">
-                    // MONITORED RUNTIME TRACE:
+                    MONITORED RUNTIME TRACE:
                   </span>
                   <code className="text-[#FFFDF9] break-all">
                     {currentStage.codeOrMetricSnippet}

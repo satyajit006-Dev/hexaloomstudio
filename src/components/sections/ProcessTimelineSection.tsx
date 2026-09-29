@@ -49,7 +49,7 @@ export const ProcessTimelineSection: React.FC<ProcessTimelineProps> = ({ reduced
           <div>
             <div className="font-mono text-xs text-[#B56A3A] tracking-wider mb-2 flex items-center gap-2">
               <span>SCENE 08</span>
-              <span>//</span>
+              <span>&bull;</span>
               <span>ENGINEERING PROTOCOL</span>
             </div>
             <h2 className="text-3xl sm:text-5xl font-bold font-sans text-[#24211D] tracking-tight">
@@ -62,7 +62,7 @@ export const ProcessTimelineSection: React.FC<ProcessTimelineProps> = ({ reduced
         </div>
 
         {/* Global Timeline Track / Scrub Bar */}
-        <div className="border border-[#24211D] bg-[#FFFDF9] p-6 sm:p-8 mb-12 shadow-xs">
+        <div className="border border-[#24211D] bg-[#FFFDF9] p-6 sm:p-8 mb-12 shadow-xs rounded-[28px]">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 font-mono text-xs mb-6">
             <div className="flex items-center gap-3">
               <span className="text-[#81776C]">TIMELINE COMPLETION:</span>
@@ -135,7 +135,7 @@ export const ProcessTimelineSection: React.FC<ProcessTimelineProps> = ({ reduced
                 key={stage.number}
                 id={`process-card-${stage.number}`}
                 onClick={() => setActiveStepIndex(idx)}
-                className={`p-6 sm:p-8 border cursor-pointer transition-all flex flex-col justify-between ${
+                className={`p-6 sm:p-8 border cursor-pointer transition-all flex flex-col justify-between rounded-[28px] ${
                   isCurrent
                     ? 'border-[#24211D] bg-[#24211D] text-[#FFFDF9] shadow-md scale-[1.01]'
                     : 'border-[#CFC5B8] bg-[#FFFDF9] text-[#24211D] hover:border-[#81776C]'
@@ -151,7 +151,7 @@ export const ProcessTimelineSection: React.FC<ProcessTimelineProps> = ({ reduced
                       STAGE {stage.number}
                     </span>
                     <span
-                      className={`px-2 py-0.5 text-xs uppercase border ${
+                      className={`px-2.5 py-0.5 text-xs uppercase border rounded-full ${
                         isCurrent
                           ? 'border-[#81776C] text-[#CFC5B8]'
                           : 'border-[#CFC5B8] text-[#81776C]'

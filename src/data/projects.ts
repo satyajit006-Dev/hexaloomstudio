@@ -96,7 +96,7 @@ export const PROJECTS_DATA: ProjectItem[] = [
           'Zero reported UI lockups during record Federal Reserve volatility events',
           'Adopted as the flagship digital product for enterprise fund onboarding'
         ],
-        codeOrMetricSnippet: 'STATUS: ACTIVE_PRODUCTION // 99.99% UPTIME OVER 365 DAYS',
+        codeOrMetricSnippet: 'STATUS: ACTIVE_PRODUCTION • 99.99% UPTIME OVER 365 DAYS',
         visualData: {
           metricValue: '45ms',
           metricLabel: 'End-to-End Tick Latency',
@@ -253,7 +253,7 @@ export const PROJECTS_DATA: ProjectItem[] = [
           'Edge geolocation cookies serving localized currency and tax rules',
           'Optimized WebP/AVIF imagery pipeline with blur-hash placeholders'
         ],
-        codeOrMetricSnippet: 'export const revalidate = 60; // Instant Edge revalidation',
+        codeOrMetricSnippet: 'export const revalidate = 60; /* Instant Edge revalidation */',
         visualData: {
           metricValue: '280ms',
           metricLabel: 'New Global Load Time',
@@ -408,7 +408,7 @@ export const PROJECTS_DATA: ProjectItem[] = [
           'Elimination of silent multi-turn hallucination loops in client apps',
           'Adopted by Fortune 500 financial and healthcare developer teams'
         ],
-        codeOrMetricSnippet: 'ACTIVE_AGENTS: 4,200+ // SYSTEM_STATUS: ALL SYSTEMS NOMINAL',
+        codeOrMetricSnippet: 'ACTIVE_AGENTS: 4,200+ • SYSTEM_STATUS: ALL SYSTEMS NOMINAL',
         visualData: {
           metricValue: '-35%',
           metricLabel: 'Cloud Token Cost Reduction',

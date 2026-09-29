@@ -13,7 +13,8 @@ import {
   Instagram,
   ArrowUpRight,
   Sparkles,
-  Smartphone
+  Smartphone,
+  X
 } from 'lucide-react';
 
 interface ContactSectionProps {
@@ -23,6 +24,7 @@ interface ContactSectionProps {
 export const ContactSection: React.FC<ContactSectionProps> = ({
   preselectedService
 }) => {
+  const [isFormOpen, setIsFormOpen] = useState(false);
   const [formData, setFormData] = useState<ContactFormData>({
     name: '',
     email: '',
@@ -40,10 +42,11 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
   const [isSuccess, setIsSuccess] = useState(false);
   const [lastLoggedLead, setLastLoggedLead] = useState<ClientInquiry | null>(null);
 
-  // Update projectType if preselectedService prop changes
+  // Update projectType if preselectedService prop changes and open form
   React.useEffect(() => {
     if (preselectedService) {
       setFormData((prev) => ({ ...prev, projectType: preselectedService }));
+      setIsFormOpen(true);
     }
   }, [preselectedService]);
 
@@ -120,7 +123,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
           <div>
             <div className="font-mono text-xs text-[#B56A3A] tracking-wider mb-2 flex items-center gap-2">
               <span>SCENE 11</span>
-              <span>//</span>
+              <span>&bull;</span>
               <span>COMMISSION INQUIRY</span>
             </div>
             <h2 className="text-3xl sm:text-5xl font-bold font-sans text-[#24211D] tracking-tight">
@@ -128,7 +131,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
             </h2>
           </div>
           <div className="font-mono text-xs text-[#81776C] max-w-xs text-left sm:text-right">
-            DIRECT ACCESS TO FOUNDING ENGINEERS // NO ACCOUNT REPS
+            DIRECT ACCESS TO FOUNDING ENGINEERS &bull; NO ACCOUNT REPS
           </div>
         </div>
 
@@ -152,10 +155,14 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                 href={SITE_CONFIG.contact.whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-4 border border-[#24211D] bg-[#FFFDF9] hover:bg-[#24211D] hover:text-[#FFFDF9] transition-all flex items-center justify-between group"
+                style={{ borderRadius: '100px' }}
+                className="py-3 px-5 border border-[#24211D] bg-[#FFFDF9] hover:bg-[#24211D] hover:text-[#FFFDF9] transition-all flex items-center justify-between group"
               >
                 <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-none border border-[#CFC5B8] group-hover:border-[#FFFDF9] flex items-center justify-center text-[#B56A3A] group-hover:text-[#FFFDF9]">
+                  <div
+                    style={{ borderRadius: '100px' }}
+                    className="w-8 h-8 border border-[#CFC5B8] group-hover:border-[#FFFDF9] flex items-center justify-center text-[#B56A3A] group-hover:text-[#FFFDF9]"
+                  >
                     <MessageSquare className="w-4 h-4" />
                   </div>
                   <div>
@@ -172,10 +179,14 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
               <a
                 id="contact-phone-link"
                 href={`tel:${SITE_CONFIG.contact.phone}`}
-                className="p-4 border border-[#CFC5B8] bg-[#FFFDF9] hover:border-[#24211D] transition-all flex items-center justify-between group"
+                style={{ borderRadius: '100px' }}
+                className="py-3 px-5 border border-[#CFC5B8] bg-[#FFFDF9] hover:border-[#24211D] transition-all flex items-center justify-between group"
               >
                 <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-none border border-[#CFC5B8] flex items-center justify-center text-[#24211D]">
+                  <div
+                    style={{ borderRadius: '100px' }}
+                    className="w-8 h-8 border border-[#CFC5B8] flex items-center justify-center text-[#24211D]"
+                  >
                     <Phone className="w-4 h-4" />
                   </div>
                   <div>
@@ -190,10 +201,14 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
               <a
                 id="contact-secondary-phone-link"
                 href={`tel:${SITE_CONFIG.contact.secondaryPhone}`}
-                className="p-4 border border-[#CFC5B8] bg-[#FFFDF9] hover:border-[#24211D] transition-all flex items-center justify-between group"
+                style={{ borderRadius: '100px' }}
+                className="py-3 px-5 border border-[#CFC5B8] bg-[#FFFDF9] hover:border-[#24211D] transition-all flex items-center justify-between group"
               >
                 <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-none border border-[#CFC5B8] flex items-center justify-center text-[#24211D]">
+                  <div
+                    style={{ borderRadius: '100px' }}
+                    className="w-8 h-8 border border-[#CFC5B8] flex items-center justify-center text-[#24211D]"
+                  >
                     <Phone className="w-4 h-4" />
                   </div>
                   <div>
@@ -208,10 +223,14 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
               <a
                 id="contact-email-link"
                 href={`mailto:${SITE_CONFIG.contact.email}`}
-                className="p-4 border border-[#CFC5B8] bg-[#FFFDF9] hover:border-[#24211D] transition-all flex items-center justify-between group"
+                style={{ borderRadius: '100px' }}
+                className="py-3 px-5 border border-[#CFC5B8] bg-[#FFFDF9] hover:border-[#24211D] transition-all flex items-center justify-between group"
               >
                 <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-none border border-[#CFC5B8] flex items-center justify-center text-[#24211D]">
+                  <div
+                    style={{ borderRadius: '100px' }}
+                    className="w-8 h-8 border border-[#CFC5B8] flex items-center justify-center text-[#24211D]"
+                  >
                     <Mail className="w-4 h-4" />
                   </div>
                   <div>
@@ -228,10 +247,14 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                 href={SITE_CONFIG.contact.instagramUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-4 border border-[#CFC5B8] bg-[#FFFDF9] hover:border-[#24211D] transition-all flex items-center justify-between group"
+                style={{ borderRadius: '100px' }}
+                className="py-3 px-5 border border-[#CFC5B8] bg-[#FFFDF9] hover:border-[#24211D] transition-all flex items-center justify-between group"
               >
                 <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-none border border-[#CFC5B8] flex items-center justify-center text-[#2563EB]">
+                  <div
+                    style={{ borderRadius: '100px' }}
+                    className="w-8 h-8 border border-[#CFC5B8] flex items-center justify-center text-[#2563EB]"
+                  >
                     <Instagram className="w-4 h-4" />
                   </div>
                   <div>
@@ -246,17 +269,65 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
 
           {/* Right Column: High-Precision Scope Ticket Form */}
           <div className="lg:col-span-7">
-            <div className="border border-[#24211D] bg-[#FFFDF9] p-6 sm:p-10 shadow-xs relative">
+            <div className="border border-[#24211D] bg-[#FFFDF9] p-6 sm:p-10 shadow-xs relative rounded-[32px]">
               {/* Receipt / Ticket Header Stamp */}
               <div className="flex items-center justify-between border-b border-[#CFC5B8] pb-4 mb-6 text-xs font-mono text-[#81776C]">
-                <span>TICKET FORMAT // RFC-2026</span>
-                <span className="text-[#B56A3A] font-bold">COMMISSION SPECIFICATION</span>
+                <div className="flex items-center gap-2">
+                  <span>TICKET FORMAT &bull; RFC-2026</span>
+                  <span>&bull;</span>
+                  <span className="text-[#B56A3A] font-bold">COMMISSION SPECIFICATION</span>
+                </div>
+                {isFormOpen && !isSuccess && (
+                  <button
+                    type="button"
+                    onClick={() => setIsFormOpen(false)}
+                    className="flex items-center gap-1.5 text-xs font-mono text-[#81776C] hover:text-[#24211D] transition-colors py-1 px-3 border border-[#CFC5B8] bg-[#F5F0E8] hover:bg-[#FFFDF9] rounded-full"
+                  >
+                    <X className="w-3.5 h-3.5" />
+                    <span>COLLAPSE</span>
+                  </button>
+                )}
               </div>
 
-              {isSuccess ? (
+              {!isFormOpen ? (
+                <div className="py-6 sm:py-8 space-y-6 animate-in fade-in duration-200">
+                  <div className="space-y-3">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#F5F0E8] border border-[#CFC5B8] font-mono text-xs text-[#B56A3A] uppercase tracking-wider rounded-full">
+                      <Sparkles className="w-3.5 h-3.5" />
+                      <span>DIRECT ARCHITECTURAL INQUIRY</span>
+                    </div>
+                    <h3 className="text-2xl sm:text-3xl font-bold font-sans text-[#24211D] tracking-tight">
+                      Ready to build your digital product?
+                    </h3>
+                    <p className="font-serif text-base sm:text-lg text-[#81776C] leading-relaxed italic max-w-xl">
+                      Have an engineering scope, platform architecture, or web application project? Click below to specify your technical constraints and transmit your commission ticket directly to our founding engineers.
+                    </p>
+                  </div>
+
+                  <div>
+                    <button
+                      type="button"
+                      id="contact-open-ticket-btn"
+                      onClick={() => setIsFormOpen(true)}
+                      className="btn-primary py-3 px-6 flex items-center justify-center gap-2.5 text-xs font-mono font-semibold tracking-wider w-full sm:w-auto shadow-sm hover:shadow-md transition-all"
+                    >
+                      <span>Transmit Commission Ticket</span>
+                      <Send className="w-3.5 h-3.5 text-[#B56A3A]" />
+                    </button>
+                  </div>
+
+                  <div className="pt-4 border-t border-[#CFC5B8]/60 flex flex-wrap items-center justify-between gap-3 text-xs font-mono text-[#81776C]">
+                    <span>REPLY TIME: &lt; 24 HOURS</span>
+                    <span>&bull;</span>
+                    <span>CONFIDENTIAL NDAs SIGNED</span>
+                    <span>&bull;</span>
+                    <span>ZERO ACCOUNT MANAGERS</span>
+                  </div>
+                </div>
+              ) : isSuccess ? (
                 <div
                   id="contact-form-success-banner"
-                  className="p-8 border border-[#527A5A] bg-[#527A5A]/10 text-center space-y-6 font-mono text-xs"
+                  className="p-8 border border-[#527A5A] bg-[#527A5A]/10 text-center space-y-6 font-mono text-xs rounded-[28px]"
                 >
                   <CheckCircle2 className="w-12 h-12 text-[#527A5A] mx-auto animate-bounce" />
                   <div>
@@ -270,7 +341,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                   </div>
 
                   {/* Immediate Action Buttons for Zero Delay */}
-                  <div className="p-4 bg-[#FFFDF9] border border-[#CFC5B8] text-left space-y-3">
+                  <div className="p-5 bg-[#FFFDF9] border border-[#CFC5B8] text-left space-y-3 rounded-2xl">
                     <div className="font-bold text-[#24211D] flex items-center justify-between">
                       <span className="flex items-center gap-1.5">
                         <Smartphone className="w-4 h-4 text-[#527A5A]" />
@@ -295,12 +366,21 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                     </div>
                   </div>
 
-                  <div>
+                  <div className="flex flex-wrap items-center justify-center gap-3">
                     <button
                       onClick={resetForm}
                       className="btn-primary py-2 px-4"
                     >
                       Submit Another Scope
+                    </button>
+                    <button
+                      onClick={() => {
+                        resetForm();
+                        setIsFormOpen(false);
+                      }}
+                      className="btn-secondary py-2 px-4"
+                    >
+                      Close Ticket
                     </button>
                   </div>
                 </div>
@@ -338,7 +418,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                           if (errors.name) setErrors({ ...errors, name: '' });
                         }}
                         placeholder="e.g. Marcus Aurelius"
-                        className={`w-full p-3 bg-[#F5F0E8] border text-xs font-mono text-[#24211D] focus:outline-none focus:border-[#24211D] transition-colors ${
+                        className={`w-full py-3 px-5 bg-[#F5F0E8] border text-xs font-mono text-[#24211D] focus:outline-none focus:border-[#24211D] transition-colors rounded-full ${
                           errors.name ? 'border-[#A84C4C]' : 'border-[#CFC5B8]'
                         }`}
                       />
@@ -366,7 +446,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                           if (errors.email) setErrors({ ...errors, email: '' });
                         }}
                         placeholder="e.g. marcus@company.com"
-                        className={`w-full p-3 bg-[#F5F0E8] border text-xs font-mono text-[#24211D] focus:outline-none focus:border-[#24211D] transition-colors ${
+                        className={`w-full py-3 px-5 bg-[#F5F0E8] border text-xs font-mono text-[#24211D] focus:outline-none focus:border-[#24211D] transition-colors rounded-full ${
                           errors.email ? 'border-[#A84C4C]' : 'border-[#CFC5B8]'
                         }`}
                       />
@@ -393,7 +473,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                         value={formData.company}
                         onChange={(e) => setFormData({ ...formData, company: e.target.value })}
                         placeholder="e.g. Horizon Labs"
-                        className="w-full p-3 bg-[#F5F0E8] border border-[#CFC5B8] text-xs font-mono text-[#24211D] focus:outline-none focus:border-[#24211D] transition-colors"
+                        className="w-full py-3 px-5 bg-[#F5F0E8] border border-[#CFC5B8] text-xs font-mono text-[#24211D] focus:outline-none focus:border-[#24211D] transition-colors rounded-full"
                       />
                     </div>
 
@@ -410,7 +490,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                         value={formData.phone || ''}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                         placeholder="e.g. +91 98765 43210"
-                        className="w-full p-3 bg-[#F5F0E8] border border-[#CFC5B8] text-xs font-mono text-[#24211D] focus:outline-none focus:border-[#24211D] transition-colors"
+                        className="w-full py-3 px-5 bg-[#F5F0E8] border border-[#CFC5B8] text-xs font-mono text-[#24211D] focus:outline-none focus:border-[#24211D] transition-colors rounded-full"
                       />
                     </div>
                   </div>
@@ -427,7 +507,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                       id="contact-project-type"
                       value={formData.projectType}
                       onChange={(e) => setFormData({ ...formData, projectType: e.target.value })}
-                      className="w-full p-3 bg-[#F5F0E8] border border-[#CFC5B8] text-xs font-mono text-[#24211D] focus:outline-none focus:border-[#24211D] transition-colors"
+                      className="w-full py-3 px-5 bg-[#F5F0E8] border border-[#CFC5B8] text-xs font-mono text-[#24211D] focus:outline-none focus:border-[#24211D] transition-colors rounded-full"
                     >
                       {SITE_CONFIG.projectTypes.map((pt, idx) => (
                         <option key={idx} value={pt}>
@@ -450,7 +530,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                         id="contact-budget"
                         value={formData.budget}
                         onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
-                        className="w-full p-3 bg-[#F5F0E8] border border-[#CFC5B8] text-xs font-mono text-[#24211D] focus:outline-none focus:border-[#24211D] transition-colors"
+                        className="w-full py-3 px-5 bg-[#F5F0E8] border border-[#CFC5B8] text-xs font-mono text-[#24211D] focus:outline-none focus:border-[#24211D] transition-colors rounded-full"
                       >
                         {SITE_CONFIG.budgetTiers.map((b, bIdx) => (
                           <option key={bIdx} value={b}>
@@ -471,7 +551,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                         id="contact-timeline"
                         value={formData.timeline}
                         onChange={(e) => setFormData({ ...formData, timeline: e.target.value })}
-                        className="w-full p-3 bg-[#F5F0E8] border border-[#CFC5B8] text-xs font-mono text-[#24211D] focus:outline-none focus:border-[#24211D] transition-colors"
+                        className="w-full py-3 px-5 bg-[#F5F0E8] border border-[#CFC5B8] text-xs font-mono text-[#24211D] focus:outline-none focus:border-[#24211D] transition-colors rounded-full"
                       >
                         {SITE_CONFIG.timelines.map((t, tIdx) => (
                           <option key={tIdx} value={t}>
@@ -500,7 +580,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                         if (errors.message) setErrors({ ...errors, message: '' });
                       }}
                       placeholder="Brief overview of what you are aiming to build, key latency or scaling goals, and any existing tech stack..."
-                      className={`w-full p-3 bg-[#F5F0E8] border text-xs font-mono text-[#24211D] focus:outline-none focus:border-[#24211D] transition-colors ${
+                      className={`w-full p-4 bg-[#F5F0E8] border text-xs font-mono text-[#24211D] focus:outline-none focus:border-[#24211D] transition-colors rounded-3xl ${
                         errors.message ? 'border-[#A84C4C]' : 'border-[#CFC5B8]'
                       }`}
                     />
@@ -530,7 +610,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                     </button>
 
                     <div className="text-xs font-mono text-[#81776C]">
-                      SECURED TRANSMISSION // ZERO SPAM ASSURANCE
+                      SECURED TRANSMISSION &bull; ZERO SPAM ASSURANCE
                     </div>
                   </div>
                 </form>

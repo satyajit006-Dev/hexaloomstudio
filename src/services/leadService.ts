@@ -139,7 +139,7 @@ export const leadService = {
   },
 
   formatMailtoUrl(data: ContactFormData): string {
-    const subject = `New Project Commission Inquiry: ${data.name} // ${data.projectType}`;
+    const subject = `New Project Commission Inquiry: ${data.name} - ${data.projectType}`;
     const body = [
       `Client Name: ${data.name}`,
       `Email: ${data.email}`,

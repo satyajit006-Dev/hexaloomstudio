@@ -45,7 +45,7 @@ export const CtaSection: React.FC<CtaSectionProps> = ({ onStartProject }) => {
 
               <div className="flex items-center gap-4 text-xs text-[#81776C] pt-2">
                 <span>REPLY TIME: &lt; 24 HOURS</span>
-                <span>//</span>
+                <span>&bull;</span>
                 <span>CONFIDENTIAL NDAs SIGNED</span>
               </div>
             </div>
@@ -54,7 +54,7 @@ export const CtaSection: React.FC<CtaSectionProps> = ({ onStartProject }) => {
 
         {/* Quick Contact Links Banner */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-10 font-mono text-xs text-[#CFC5B8]">
-          <div className="p-4 border border-[#81776C]/30 bg-[#1C1A17]">
+          <div className="p-5 border border-[#81776C]/30 bg-[#1C1A17] rounded-[28px]">
             <div className="text-xs text-[#81776C] uppercase mb-1">DIRECT INQUIRY</div>
             <a
               href={`mailto:${SITE_CONFIG.contact.email}`}
@@ -64,7 +64,7 @@ export const CtaSection: React.FC<CtaSectionProps> = ({ onStartProject }) => {
             </a>
           </div>
 
-          <div className="p-4 border border-[#81776C]/30 bg-[#1C1A17]">
+          <div className="p-5 border border-[#81776C]/30 bg-[#1C1A17] rounded-[28px]">
             <div className="text-xs text-[#81776C] uppercase mb-1">TELEPHONE DESK</div>
             <div className="flex flex-col gap-1">
               <a
@@ -82,7 +82,7 @@ export const CtaSection: React.FC<CtaSectionProps> = ({ onStartProject }) => {
             </div>
           </div>
 
-          <div className="p-4 border border-[#81776C]/30 bg-[#1C1A17]">
+          <div className="p-5 border border-[#81776C]/30 bg-[#1C1A17] rounded-[28px]">
             <div className="text-xs text-[#81776C] uppercase mb-1">INSTAGRAM</div>
             <a
               href={SITE_CONFIG.contact.instagramUrl}
@@ -95,7 +95,7 @@ export const CtaSection: React.FC<CtaSectionProps> = ({ onStartProject }) => {
             </a>
           </div>
 
-          <div className="p-4 border border-[#81776C]/30 bg-[#1C1A17]">
+          <div className="p-5 border border-[#81776C]/30 bg-[#1C1A17] rounded-[28px]">
             <div className="text-xs text-[#81776C] uppercase mb-1">WHATSAPP CHAT</div>
             <a
               href={SITE_CONFIG.contact.whatsappUrl}

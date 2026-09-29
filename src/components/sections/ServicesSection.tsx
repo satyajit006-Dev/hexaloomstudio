@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { SERVICES_DATA } from '../../data/services';
-import { ArrowUpRight, Check, ChevronDown, Sparkles } from 'lucide-react';
+import { ArrowUpRight, Check, ChevronDown } from 'lucide-react';
 import { ServiceItem } from '../../types';
 
 interface ServicesSectionProps {
@@ -26,7 +26,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
           <div>
             <div className="font-mono text-xs text-[#B56A3A] tracking-wider mb-2 flex items-center gap-2">
               <span>SCENE 04</span>
-              <span>//</span>
+              <span>&bull;</span>
               <span>STUDIO SERVICE CATALOG</span>
             </div>
             <h2 className="text-3xl sm:text-5xl font-bold font-sans text-[#24211D] tracking-tight">
@@ -46,7 +46,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
               <div
                 key={service.id}
                 id={`service-card-${service.id}`}
-                className={`border transition-all duration-200 group ${
+                className={`border transition-all duration-200 group rounded-[28px] overflow-hidden ${
                   isExpanded
                     ? 'border-[#24211D] bg-[#FFFDF9] shadow-xs'
                     : 'border-[#CFC5B8] bg-[#FFFDF9]/60 hover:border-[#81776C]'
@@ -146,7 +146,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
                             {service.specs.stack.map((tech, tIdx) => (
                               <span
                                 key={tIdx}
-                                className="px-2.5 py-1 bg-[#F5F0E8] border border-[#CFC5B8] text-xs font-mono text-[#24211D]"
+                                className="px-3 py-1 bg-[#F5F0E8] border border-[#CFC5B8] text-xs font-mono text-[#24211D] rounded-full"
                               >
                                 {tech}
                               </span>
@@ -157,7 +157,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
 
                       <div className="pt-4 border-t border-[#CFC5B8]/60 flex items-center justify-between">
                         <span className="font-mono text-xs text-[#81776C]">
-                          ORDER CODE: #{service.number} // AUDIT_READY
+                          ORDER CODE: #{service.number} &bull; AUDIT_READY
                         </span>
 
                         <button

@@ -22,7 +22,7 @@ export const SelectedWorkSection: React.FC<SelectedWorkSectionProps> = ({
           <div>
             <div className="font-mono text-xs text-[#B56A3A] tracking-wider mb-2 flex items-center gap-2">
               <span>SCENE 06</span>
-              <span>//</span>
+              <span>&bull;</span>
               <span>SELECTED COMMISSIONS</span>
             </div>
             <h2 className="text-3xl sm:text-5xl font-bold font-sans text-[#24211D] tracking-tight">
@@ -41,7 +41,7 @@ export const SelectedWorkSection: React.FC<SelectedWorkSectionProps> = ({
               <article
                 key={project.id}
                 id={`project-card-${project.id}`}
-                className="border border-[#24211D] bg-[#FFFDF9] shadow-xs hover:border-[#B56A3A] transition-all"
+                className="border border-[#24211D] bg-[#FFFDF9] shadow-xs hover:border-[#B56A3A] transition-all rounded-[32px] overflow-hidden"
               >
                 {/* Project Header Bar */}
                 <div className="p-6 sm:p-8 border-b border-[#CFC5B8] flex flex-wrap items-center justify-between gap-4 bg-[#F5F0E8]/50">
@@ -49,11 +49,11 @@ export const SelectedWorkSection: React.FC<SelectedWorkSectionProps> = ({
                     <span className="font-mono text-base sm:text-lg font-bold text-[#B56A3A]">
                       PROJECT {project.number}
                     </span>
-                    <span className="font-mono text-xs text-[#81776C]">// {project.client}</span>
+                    <span className="font-mono text-xs text-[#81776C]">&bull; {project.client}</span>
                   </div>
 
                   <div className="flex items-center gap-3">
-                    <span className="px-2.5 py-1 bg-[#24211D] text-[#FFFDF9] font-mono text-xs uppercase tracking-wider">
+                    <span className="px-3.5 py-1 bg-[#24211D] text-[#FFFDF9] font-mono text-xs uppercase tracking-wider rounded-full">
                       {project.category}
                     </span>
                     <span className="font-mono text-xs text-[#81776C]">{project.year}</span>
@@ -84,7 +84,7 @@ export const SelectedWorkSection: React.FC<SelectedWorkSectionProps> = ({
                           {project.stack.map((item, sIdx) => (
                             <span
                               key={sIdx}
-                              className="px-2 py-1 bg-[#F5F0E8] border border-[#CFC5B8] font-mono text-xs text-[#24211D]"
+                              className="px-3 py-1 bg-[#F5F0E8] border border-[#CFC5B8] font-mono text-xs text-[#24211D] rounded-full"
                             >
                               {item}
                             </span>
@@ -96,7 +96,7 @@ export const SelectedWorkSection: React.FC<SelectedWorkSectionProps> = ({
                     {/* Impact Metrics Bento */}
                     <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-6 border-t border-[#CFC5B8]/80 font-mono">
                       {project.impactMetrics.map((m, mIdx) => (
-                        <div key={mIdx} className="p-2.5 bg-[#F5F0E8]/70 border border-[#CFC5B8]/60">
+                        <div key={mIdx} className="p-3 bg-[#F5F0E8]/70 border border-[#CFC5B8]/60 rounded-2xl">
                           <div className="text-lg font-bold text-[#B56A3A] tracking-tight">
                             {m.value}
                           </div>
@@ -121,7 +121,7 @@ export const SelectedWorkSection: React.FC<SelectedWorkSectionProps> = ({
                   </div>
 
                   {/* Right Column: Architectural Visual Schema */}
-                  <div className="lg:col-span-6 bg-[#24211D] text-[#FFFDF9] p-6 sm:p-8 flex flex-col justify-between border border-[#24211D]">
+                  <div className="lg:col-span-6 bg-[#24211D] text-[#FFFDF9] p-6 sm:p-8 flex flex-col justify-between border border-[#24211D] rounded-[24px] overflow-hidden">
                     <div className="space-y-6">
                       <div className="flex items-center justify-between border-b border-[#81776C]/40 pb-3 text-xs font-mono">
                         <span className="text-[#B56A3A] flex items-center gap-1.5">
@@ -132,8 +132,8 @@ export const SelectedWorkSection: React.FC<SelectedWorkSectionProps> = ({
                       </div>
 
                       {/* Editorial Visual Diagrams */}
-                      <div className="p-4 bg-[#1C1A17] border border-[#81776C]/30 font-mono text-xs text-[#CFC5B8] space-y-3">
-                        <div className="text-[#B56A3A] font-semibold">// PRODUCTION PIPELINE EXECUTION:</div>
+                      <div className="p-4 bg-[#1C1A17] border border-[#81776C]/30 font-mono text-xs text-[#CFC5B8] space-y-3 rounded-2xl">
+                        <div className="text-[#B56A3A] font-semibold">PRODUCTION PIPELINE EXECUTION:</div>
                         <div className="space-y-2 text-xs">
                           <div className="flex items-center justify-between border-b border-[#81776C]/20 pb-1.5">
                             <span className="text-[#81776C]">01 INGRESS:</span>

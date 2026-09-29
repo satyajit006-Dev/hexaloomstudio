@@ -27,7 +27,7 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
     >
       <div
         id="project-detail-modal-window"
-        className="bg-[#F5F0E8] border border-[#24211D] max-w-4xl w-full max-h-[90vh] overflow-y-auto p-6 sm:p-10 shadow-2xl flex flex-col justify-between"
+        className="bg-[#F5F0E8] border border-[#24211D] max-w-4xl w-full max-h-[90vh] overflow-y-auto p-6 sm:p-10 shadow-2xl flex flex-col justify-between rounded-[32px]"
         onClick={(e) => e.stopPropagation()}
       >
         <div>
@@ -37,7 +37,7 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
               <span className="font-mono text-sm font-bold text-[#B56A3A]">
                 PROJECT {project.number}
               </span>
-              <span className="text-[#81776C] font-mono text-xs">// {project.category}</span>
+              <span className="text-[#81776C] font-mono text-xs">&bull; {project.category}</span>
             </div>
 
             <button
@@ -64,7 +64,7 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
             {/* Metrics Bar */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-4 border-t border-[#CFC5B8]/80 font-mono">
               {project.impactMetrics.map((m, idx) => (
-                <div key={idx} className="p-3 bg-[#FFFDF9] border border-[#CFC5B8]">
+                <div key={idx} className="p-3 bg-[#FFFDF9] border border-[#CFC5B8] rounded-xl">
                   <div className="text-lg font-bold text-[#B56A3A]">{m.value}</div>
                   <div className="text-xs text-[#81776C] uppercase mt-0.5">{m.label}</div>
                 </div>
@@ -73,7 +73,7 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
           </div>
 
           {/* 5-Stage Audit Selector */}
-          <div className="border border-[#24211D] bg-[#FFFDF9] p-6 space-y-6">
+          <div className="border border-[#24211D] bg-[#FFFDF9] p-6 space-y-6 rounded-xl">
             <div className="flex items-center justify-between border-b border-[#CFC5B8] pb-3 text-xs font-mono">
               <span className="text-[#B56A3A] font-bold">5-STAGE ENGINEERING AUDIT</span>
               <span className="text-[#81776C]">SELECT STAGE TO INSPECT</span>
@@ -87,7 +87,7 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
                   <button
                     key={stg.step}
                     onClick={() => setSelectedStageIndex(sIdx)}
-                    className={`py-2 px-1 text-center border transition-all ${
+                    className={`py-2 px-1 text-center border transition-all rounded-lg ${
                       isSelected
                         ? 'border-[#B56A3A] bg-[#24211D] text-[#FFFDF9]'
                         : 'border-[#CFC5B8] bg-[#F5F0E8] text-[#81776C] hover:border-[#24211D]'
@@ -125,8 +125,8 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
               </div>
 
               {currentStage.codeOrMetricSnippet && (
-                <div className="p-3 bg-[#1C1A17] border border-[#24211D] text-[#CFC5B8] font-mono text-xs mt-3">
-                  <span className="text-[#81776C] block text-xs mb-1">// TELEMETRY PROBE:</span>
+                <div className="p-3 bg-[#1C1A17] border border-[#24211D] text-[#CFC5B8] font-mono text-xs mt-3 rounded-xl">
+                  <span className="text-[#81776C] block text-xs mb-1">TELEMETRY PROBE:</span>
                   <code className="text-[#FFFDF9]">{currentStage.codeOrMetricSnippet}</code>
                 </div>
               )}
@@ -137,7 +137,7 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
         {/* Modal Actions */}
         <div className="pt-6 border-t border-[#CFC5B8] mt-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4 font-mono text-xs">
           <div className="text-[#81776C]">
-            CLIENT: {project.client} // {project.year}
+            CLIENT: {project.client} &bull; {project.year}
           </div>
 
           <div className="flex items-center gap-3">

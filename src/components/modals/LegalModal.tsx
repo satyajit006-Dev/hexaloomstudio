@@ -18,7 +18,7 @@ export const LegalModal: React.FC<LegalModalProps> = ({ type, onClose }) => {
     >
       <div
         id="legal-modal-content"
-        className="bg-[#F5F0E8] border border-[#24211D] max-w-3xl w-full max-h-[85vh] overflow-y-auto p-6 sm:p-10 shadow-2xl flex flex-col justify-between"
+        className="bg-[#F5F0E8] border border-[#24211D] max-w-3xl w-full max-h-[85vh] overflow-y-auto p-6 sm:p-10 shadow-2xl flex flex-col justify-between rounded-[32px]"
         onClick={(e) => e.stopPropagation()}
       >
         <div>

@@ -8,6 +8,12 @@ interface PhilosophySectionProps {
 export const PhilosophySection: React.FC<PhilosophySectionProps> = ({ reducedMotion }) => {
   const sectionRef = useRef<HTMLElement>(null);
   const [scrollFraction, setScrollFraction] = useState(0);
+  const [isMobile, setIsMobile] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return window.innerWidth < 768;
+    }
+    return false;
+  });
 
   useEffect(() => {
     const handleScroll = () => {
@@ -22,9 +28,17 @@ export const PhilosophySection: React.FC<PhilosophySectionProps> = ({ reducedMot
       setScrollFraction(progress);
     };
 
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
     window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('resize', handleResize);
     handleScroll();
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleResize);
+    };
   }, []);
 
   const firstSentenceWords = ['Code', 'should', 'feel', 'invisible.'];
@@ -43,7 +57,7 @@ export const PhilosophySection: React.FC<PhilosophySectionProps> = ({ reducedMot
           <div>
             <div className="font-mono text-xs text-[#B56A3A] tracking-wider mb-2 flex items-center gap-2">
               <span className="font-semibold">SCENE 02</span>
-              <span>//</span>
+              <span>&bull;</span>
               <span>STUDIO ETHOS</span>
             </div>
             <h2 className="text-3xl sm:text-5xl font-bold font-sans text-[#24211D] tracking-tight">
@@ -61,10 +75,10 @@ export const PhilosophySection: React.FC<PhilosophySectionProps> = ({ reducedMot
             <div className="flex flex-wrap gap-x-4 sm:gap-x-6 gap-y-2 mb-3">
               {firstSentenceWords.map((word, idx) => {
                 const staggerDelay = idx * 0.08;
-                const wordOpacity = reducedMotion
+                const wordOpacity = reducedMotion || isMobile
                   ? 1
                   : Math.min(Math.max((scrollFraction - 0.15 - staggerDelay) * 3, 0.25), 1);
-                const wordTranslateY = reducedMotion
+                const wordTranslateY = reducedMotion || isMobile
                   ? 0
                   : Math.max((1 - (scrollFraction - 0.15 - staggerDelay) * 2.5) * 30, 0);
 
@@ -86,10 +100,10 @@ export const PhilosophySection: React.FC<PhilosophySectionProps> = ({ reducedMot
             <div className="flex flex-wrap gap-x-4 sm:gap-x-6 gap-y-2 text-[#B56A3A]">
               {secondSentenceWords.map((word, idx) => {
                 const staggerDelay = (idx + 4) * 0.08;
-                const wordOpacity = reducedMotion
+                const wordOpacity = reducedMotion || isMobile
                   ? 1
                   : Math.min(Math.max((scrollFraction - 0.15 - staggerDelay) * 3, 0.25), 1);
-                const wordTranslateY = reducedMotion
+                const wordTranslateY = reducedMotion || isMobile
                   ? 0
                   : Math.max((1 - (scrollFraction - 0.15 - staggerDelay) * 2.5) * 30, 0);
 
@@ -112,7 +126,7 @@ export const PhilosophySection: React.FC<PhilosophySectionProps> = ({ reducedMot
 
         {/* Grid of Core Engineering Tenets */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-12 border-t border-[#CFC5B8]">
-          <div className="p-6 border border-[#CFC5B8] bg-[#FFFDF9] space-y-4 hover:border-[#24211D] transition-colors">
+          <div className="p-6 sm:p-7 border border-[#CFC5B8] bg-[#FFFDF9] space-y-4 hover:border-[#24211D] transition-colors rounded-[28px] shadow-xs">
             <div className="flex items-center justify-between font-mono text-xs text-[#81776C]">
               <span>TENET 01</span>
               <Layers className="w-4 h-4 text-[#B56A3A]" />
@@ -124,11 +138,11 @@ export const PhilosophySection: React.FC<PhilosophySectionProps> = ({ reducedMot
               We eliminate decorative excess and synthetic fluff. Every line of code, HTML element, and database query must justify its footprint in latency and maintenance cost.
             </p>
             <div className="font-mono text-xs text-[#24211D] pt-2 border-t border-[#CFC5B8]/40">
-              ZERO-SLOP PROMISE // NO MARKETING GIMMICKS
+              ZERO-SLOP PROMISE &bull; NO MARKETING GIMMICKS
             </div>
           </div>
 
-          <div className="p-6 border border-[#CFC5B8] bg-[#FFFDF9] space-y-4 hover:border-[#24211D] transition-colors">
+          <div className="p-6 sm:p-7 border border-[#CFC5B8] bg-[#FFFDF9] space-y-4 hover:border-[#24211D] transition-colors rounded-[28px] shadow-xs">
             <div className="flex items-center justify-between font-mono text-xs text-[#81776C]">
               <span>TENET 02</span>
               <Zap className="w-4 h-4 text-[#B56A3A]" />
@@ -140,11 +154,11 @@ export const PhilosophySection: React.FC<PhilosophySectionProps> = ({ reducedMot
               Performance is a non-negotiable feature. We optimize time-to-first-byte, memoize expensive data transforms, and deliver 60fps locked rendering across devices.
             </p>
             <div className="font-mono text-xs text-[#24211D] pt-2 border-t border-[#CFC5B8]/40">
-              LATENCY CEILING // &lt; 200MS TTFB
+              LATENCY CEILING &bull; &lt; 200MS TTFB
             </div>
           </div>
 
-          <div className="p-6 border border-[#CFC5B8] bg-[#FFFDF9] space-y-4 hover:border-[#24211D] transition-colors">
+          <div className="p-6 sm:p-7 border border-[#CFC5B8] bg-[#FFFDF9] space-y-4 hover:border-[#24211D] transition-colors rounded-[28px] shadow-xs">
             <div className="flex items-center justify-between font-mono text-xs text-[#81776C]">
               <span>TENET 03</span>
               <Cpu className="w-4 h-4 text-[#B56A3A]" />
@@ -156,7 +170,7 @@ export const PhilosophySection: React.FC<PhilosophySectionProps> = ({ reducedMot
               We build systems that withstand real-world production. Strict type safety, deterministic testing, and isolated services that do not crumble under flash traffic.
             </p>
             <div className="font-mono text-xs text-[#24211D] pt-2 border-t border-[#CFC5B8]/40">
-              TYPE-STRICT // AUDITED CI/CD
+              TYPE-STRICT &bull; AUDITED CI/CD
             </div>
           </div>
         </div>
